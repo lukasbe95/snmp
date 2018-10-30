@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/snmp.dir/main.cpp.o CMakeFiles/snmp.dir/parser.cpp.o  -o snmp 

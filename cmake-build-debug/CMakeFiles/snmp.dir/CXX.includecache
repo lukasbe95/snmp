@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lukas/git_start/snmp/parser.cpp
+parser.h
+/home/lukas/git_start/snmp/parser.h
+string
+-
+iostream
+-
+fstream
+-
+algorithm
+-
+vector
+-
+regex
+-
+
+/home/lukas/git_start/snmp/parser.h
+string
+-
+

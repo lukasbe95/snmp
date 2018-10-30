@@ -1,0 +1,3 @@
+/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles/snmp.dir
