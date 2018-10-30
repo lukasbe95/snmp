@@ -93,6 +93,9 @@
 		<Unit filename="/home/lukas/git_start/snmp/parser.h">
 			<Option target="snmp"/>
 		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/structures.h">
+			<Option target="snmp"/>
+		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

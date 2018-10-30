@@ -6,7 +6,7 @@
 #define SNMP_PARSER_H
 
 #include <string>
-
+#include "structures.h"
 class Parser {
 private:
     std::string wholeFile;
@@ -17,6 +17,11 @@ public:
     void readFile();
     void searchForOID();
     void searchForOT();
+    void parseOTSyntax(std::string & file,objectType & o);
+    void parseOTAccess(std::string & file,objectType & o);
+    void parseOTStatus(std::string & file,objectType & o);
+    void parseOTDescription(std::string & file,objectType & o);
+    void parseOToid(std::string & file,objectType & o);
 };
 
 
