@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/snmp.dir/main.cpp.o"
   "CMakeFiles/snmp.dir/parser.cpp.o"
-  "CMakeFiles/snmp.dir/object_id.cpp.o"
+  "CMakeFiles/snmp.dir/ObjectId.cpp.o"
+  "CMakeFiles/snmp.dir/ObjectType.cpp.o"
+  "CMakeFiles/snmp.dir/DataType.cpp.o"
   "snmp.pdb"
   "snmp"
 )

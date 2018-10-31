@@ -51,6 +51,7 @@ void Parser::searchForImports() {
     istringstream stream{wholeFile};
     string line;
     string imports;
+    string importfile;
     bool process = false; // here starts
     while(getline(stream,line)){
         if (line.find("IMPORTS")<100000){
@@ -67,22 +68,27 @@ void Parser::searchForImports() {
     regex multispace("\\s+|,\\s+");
     std::vector<std::string> v = split(regex_replace(imports,multispace," ")," ");
     for(auto i=0;i<=v.size();i++){
-        if (v[i].find("FROM") < 1000 || v[i].find("OBJECT-TYPE") < 1000 || v[i] == ""){
+        if (v[i].find("FROM") < 1000 || v[i].find("OBJECT-TYPE") < 1000){
+            v.erase(v.begin()+i);
+        }
+        if(v[i].find("RFC")<1000){
+            importfile = v[i] + ".txt";
             v.erase(v.begin()+i);
         }
     }
-    for (auto x:v){
-        cout<<x<<endl;
-    }
+    v.pop_back(); //workaround to fix
+//    this->searchInformationsInImports("/usr/local/share/snmp/mibs/",filename);
 }
 void Parser::searchForOID() {
-//    cout<<wholeFile<<endl;
     std::regex declaration  (".+\\s+OBJECT\\sIDENTIFIER\\s+::=\\s*\\{.*?}");
     std::smatch m;
     std::string temp = std::move(wholeFile);
-    cout<<regex_search(wholeFile,m,declaration)<<endl;
+//    cout<<regex_search(wholeFile,m,declaration)<<endl;
     while(regex_search(temp,m,declaration)){
-        cout<<m[0]<<endl;
+//        cout<<m[0]<<endl;
+//        string d = m[0].str();
+        ObjectId* o = new ObjectId();
+        bool sasa = o->createObjectIdFromString(m[0].str());
         temp = m.suffix();
     }
 }

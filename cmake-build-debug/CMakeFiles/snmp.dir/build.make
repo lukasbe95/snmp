@@ -83,34 +83,64 @@ CMakeFiles/snmp.dir/parser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/snmp.dir/parser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lukas/git_start/snmp/parser.cpp -o CMakeFiles/snmp.dir/parser.cpp.s
 
-CMakeFiles/snmp.dir/object_id.cpp.o: CMakeFiles/snmp.dir/flags.make
-CMakeFiles/snmp.dir/object_id.cpp.o: ../object_id.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/snmp.dir/object_id.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/snmp.dir/object_id.cpp.o -c /home/lukas/git_start/snmp/object_id.cpp
+CMakeFiles/snmp.dir/ObjectId.cpp.o: CMakeFiles/snmp.dir/flags.make
+CMakeFiles/snmp.dir/ObjectId.cpp.o: ../ObjectId.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/snmp.dir/ObjectId.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/snmp.dir/ObjectId.cpp.o -c /home/lukas/git_start/snmp/ObjectId.cpp
 
-CMakeFiles/snmp.dir/object_id.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/snmp.dir/object_id.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lukas/git_start/snmp/object_id.cpp > CMakeFiles/snmp.dir/object_id.cpp.i
+CMakeFiles/snmp.dir/ObjectId.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/snmp.dir/ObjectId.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lukas/git_start/snmp/ObjectId.cpp > CMakeFiles/snmp.dir/ObjectId.cpp.i
 
-CMakeFiles/snmp.dir/object_id.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/snmp.dir/object_id.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lukas/git_start/snmp/object_id.cpp -o CMakeFiles/snmp.dir/object_id.cpp.s
+CMakeFiles/snmp.dir/ObjectId.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/snmp.dir/ObjectId.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lukas/git_start/snmp/ObjectId.cpp -o CMakeFiles/snmp.dir/ObjectId.cpp.s
+
+CMakeFiles/snmp.dir/ObjectType.cpp.o: CMakeFiles/snmp.dir/flags.make
+CMakeFiles/snmp.dir/ObjectType.cpp.o: ../ObjectType.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/snmp.dir/ObjectType.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/snmp.dir/ObjectType.cpp.o -c /home/lukas/git_start/snmp/ObjectType.cpp
+
+CMakeFiles/snmp.dir/ObjectType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/snmp.dir/ObjectType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lukas/git_start/snmp/ObjectType.cpp > CMakeFiles/snmp.dir/ObjectType.cpp.i
+
+CMakeFiles/snmp.dir/ObjectType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/snmp.dir/ObjectType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lukas/git_start/snmp/ObjectType.cpp -o CMakeFiles/snmp.dir/ObjectType.cpp.s
+
+CMakeFiles/snmp.dir/DataType.cpp.o: CMakeFiles/snmp.dir/flags.make
+CMakeFiles/snmp.dir/DataType.cpp.o: ../DataType.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/snmp.dir/DataType.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/snmp.dir/DataType.cpp.o -c /home/lukas/git_start/snmp/DataType.cpp
+
+CMakeFiles/snmp.dir/DataType.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/snmp.dir/DataType.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/lukas/git_start/snmp/DataType.cpp > CMakeFiles/snmp.dir/DataType.cpp.i
+
+CMakeFiles/snmp.dir/DataType.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/snmp.dir/DataType.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/lukas/git_start/snmp/DataType.cpp -o CMakeFiles/snmp.dir/DataType.cpp.s
 
 # Object files for target snmp
 snmp_OBJECTS = \
 "CMakeFiles/snmp.dir/main.cpp.o" \
 "CMakeFiles/snmp.dir/parser.cpp.o" \
-"CMakeFiles/snmp.dir/object_id.cpp.o"
+"CMakeFiles/snmp.dir/ObjectId.cpp.o" \
+"CMakeFiles/snmp.dir/ObjectType.cpp.o" \
+"CMakeFiles/snmp.dir/DataType.cpp.o"
 
 # External object files for target snmp
 snmp_EXTERNAL_OBJECTS =
 
 snmp: CMakeFiles/snmp.dir/main.cpp.o
 snmp: CMakeFiles/snmp.dir/parser.cpp.o
-snmp: CMakeFiles/snmp.dir/object_id.cpp.o
+snmp: CMakeFiles/snmp.dir/ObjectId.cpp.o
+snmp: CMakeFiles/snmp.dir/ObjectType.cpp.o
+snmp: CMakeFiles/snmp.dir/DataType.cpp.o
 snmp: CMakeFiles/snmp.dir/build.make
 snmp: CMakeFiles/snmp.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable snmp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/lukas/git_start/snmp/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable snmp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/snmp.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

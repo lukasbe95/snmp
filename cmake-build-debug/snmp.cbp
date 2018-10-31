@@ -84,13 +84,25 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/lukas/git_start/snmp/DataType.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/DataType.h">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ObjectId.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ObjectId.h">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ObjectType.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ObjectType.h">
+			<Option target="snmp"/>
+		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/main.cpp">
-			<Option target="snmp"/>
-		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/object_id.cpp">
-			<Option target="snmp"/>
-		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/object_id.h">
 			<Option target="snmp"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser.cpp">

@@ -6,16 +6,21 @@
 #define SNMP_OBJECT_ID_H
 
 #include <string>
+#include <vector>
 class ObjectId {
 private:
-    int value;
+    std::string value;
     std::string name;
+    std::vector<std::string> path;
 public:
-    ObjectId(std::string n,int v);
+    ObjectId(std::string n,std::string v);
+    ObjectId();
     std::string getName();
-    int getValue();
+    std::string getValue();
     void setName(std::string n);
-    void setValue(int v);
+    void setValue(std::string v);
+    std::vector<std::string> getPath();
+    bool createObjectIdFromString(std::string s);
 };
 
 
