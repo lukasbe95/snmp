@@ -87,6 +87,12 @@
 		<Unit filename="/home/lukas/git_start/snmp/main.cpp">
 			<Option target="snmp"/>
 		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/object_id.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/object_id.h">
+			<Option target="snmp"/>
+		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser.cpp">
 			<Option target="snmp"/>
 		</Unit>

@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+object_id.o: object_id.cpp.o
+
+.PHONY : object_id.o
+
+# target to build an object file
+object_id.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/object_id.cpp.o
+.PHONY : object_id.cpp.o
+
+object_id.i: object_id.cpp.i
+
+.PHONY : object_id.i
+
+# target to preprocess a source file
+object_id.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/object_id.cpp.i
+.PHONY : object_id.cpp.i
+
+object_id.s: object_id.cpp.s
+
+.PHONY : object_id.s
+
+# target to generate assembly for a file
+object_id.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/object_id.cpp.s
+.PHONY : object_id.cpp.s
+
 parser.o: parser.cpp.o
 
 .PHONY : parser.o
@@ -189,6 +216,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... object_id.o"
+	@echo "... object_id.i"
+	@echo "... object_id.s"
 	@echo "... parser.o"
 	@echo "... parser.i"
 	@echo "... parser.s"

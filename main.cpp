@@ -16,7 +16,7 @@ using  namespace std;
 int main() {
     Parser* p = new Parser("/usr/local/share/snmp/mibs/","RFC1213-MIB.txt");
     p->readFile();
-    p->searchForOT();
+    p->searchForImports();
     delete(p);
 
     return 0;

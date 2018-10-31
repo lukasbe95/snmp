@@ -3,7 +3,9 @@
 
 CMakeFiles/snmp.dir/main.cpp.o: ../main.cpp
 CMakeFiles/snmp.dir/main.cpp.o: ../parser.h
+CMakeFiles/snmp.dir/main.cpp.o: ../structures.h
 
 CMakeFiles/snmp.dir/parser.cpp.o: ../parser.cpp
 CMakeFiles/snmp.dir/parser.cpp.o: ../parser.h
+CMakeFiles/snmp.dir/parser.cpp.o: ../structures.h
 

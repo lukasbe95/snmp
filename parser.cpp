@@ -9,6 +9,7 @@
 #include <algorithm>
 #include <vector>
 #include <regex>
+#include <sstream>
 #include "structures.h"
 using namespace std;
 
@@ -17,7 +18,19 @@ struct oid{
     vector<string> v;
 };
 
-
+std::vector<std::string> split(std::string s, std::string delimiter){
+    size_t pos = 0;
+    std::string token;
+    std::vector<std::string> v;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        token = s.substr(0, pos);
+        if(token !=""&&token!=" "){
+            v.push_back(token);
+        }
+        s.erase(0, pos + 1);
+    }
+    return v;
+}
 Parser::Parser(std::string p, std::string fn) {
     this->pathToFile = std::move(p);
     this->filename = std::move(fn);
@@ -34,6 +47,34 @@ void Parser::readFile() {
         }
     }
 }
+void Parser::searchForImports() {
+    istringstream stream{wholeFile};
+    string line;
+    string imports;
+    bool process = false; // here starts
+    while(getline(stream,line)){
+        if (line.find("IMPORTS")<100000){
+            process = true;
+            continue;
+        }else if((line.find(";")<10000)&&process){
+            imports+=line;
+            process = false;
+        }
+        if(process){
+            imports+=line;
+        }
+    }
+    regex multispace("\\s+|,\\s+");
+    std::vector<std::string> v = split(regex_replace(imports,multispace," ")," ");
+    for(auto i=0;i<=v.size();i++){
+        if (v[i].find("FROM") < 1000 || v[i].find("OBJECT-TYPE") < 1000 || v[i] == ""){
+            v.erase(v.begin()+i);
+        }
+    }
+    for (auto x:v){
+        cout<<x<<endl;
+    }
+}
 void Parser::searchForOID() {
 //    cout<<wholeFile<<endl;
     std::regex declaration  (".+\\s+OBJECT\\sIDENTIFIER\\s+::=\\s*\\{.*?}");
@@ -47,7 +88,6 @@ void Parser::searchForOID() {
 }
 void Parser::searchForOT() {
     std::regex matchOT(".+\\s*OBJECT-TYPE");
-//    std::regex matchDescriptionEnd("\\s*[^::=]");
     std::vector<objectType> v;
     std::smatch mOT;
     std::string temp = std::move(wholeFile);
@@ -60,20 +100,14 @@ void Parser::searchForOT() {
         this->parseOTStatus(temp,o);
         this->parseOTDescription(temp,o);
         this->parseOToid(temp,o);
-//        cout<<o.name<<endl;
-        cout<<o.syntax<<endl;
-//        cout<<o.access;
-//        cout<<o.status;
-//        cout<<o.description;
-//        cout<<o.oid;
         v.push_back(o);
     }
 }
 void Parser::parseOTAccess(std::string &file, objectType &o) {
-    std::regex matchAccess("\\s*?ACCESS\\s*.+");
+    std::regex matchAccess("ACCESS\\s*.+");
     std::smatch mAccess;
     if(regex_search(file,mAccess,matchAccess)){
-        o.access = mAccess[0];
+        o.access = mAccess[0].str().substr(8,mAccess[0].str().length());
         file = mAccess.suffix();
     }
 }
@@ -81,15 +115,19 @@ void Parser::parseOTSyntax(std::string &file, objectType &o) {
     std::smatch mSyntax;
     std::regex matchSyntaxNormal("SYNTAX\\s.+");
     std::regex matchSyntaxInt("SYNTAX\\s.+\\{.*?\\n}");
+//    std::regex matchSyntaxIntPost("SYNTAX\\s.+\\{.*?\\n}");
     std::regex matchSyntaxIntMultiline("SYNTAX\\s.+\\{");
     if(regex_search(file,mSyntax,matchSyntaxInt)) {
-
-    }else if(regex_search(file,mSyntax,matchSyntaxNormal)){
+        o.syntax = mSyntax[0].str().substr(7,mSyntax.length());
+        file = mSyntax.suffix();
+    }else if(regex_search(file,mSyntax,matchSyntaxInt)){
         o.syntax = mSyntax[0].str().substr(7,mSyntax.length());
         file = mSyntax.suffix();
     }else if (regex_search(file,mSyntax,matchSyntaxNormal)){
-
+        o.syntax = mSyntax[0].str().substr(7,mSyntax.length());
+        file = mSyntax.suffix();
     }
+//    std::cout<<file.substr(file.find("SYNTAX"),file.find("}"))<<endl;
 }
 void Parser::parseOTDescription(std::string &file, objectType &o) {
     std::smatch mDescription;
@@ -102,17 +140,21 @@ void Parser::parseOTDescription(std::string &file, objectType &o) {
 }
 void Parser::parseOToid(std::string &file, objectType &o) {
     std::smatch mDescription;
-    std::regex matchEndOfOT("\\s+::=\\s*\\{.*?}");
+    std::regex matchEndOfOT("::=\\s*\\{.*?}");
     if(regex_search(file,mDescription,matchEndOfOT)){
-        o.oid.push_back(mDescription[0]);
+        std::string collectionToParse = mDescription[0].str();
+        collectionToParse.erase(0,collectionToParse.find("{")+1);
+        std::vector<std::string> v = split(collectionToParse," ");
+        o.oid.insert(o.oid.end(),v.begin(),v.end());
         file = mDescription.suffix();
     }
 }
+
 void Parser::parseOTStatus(std::string &file, objectType &o) {
     std::smatch mStatus;
-    std::regex matchStatus("\\s*?STATUS\\s*.+");
+    std::regex matchStatus("STATUS\\s*.+");
     if(regex_search(file,mStatus,matchStatus)){
-        o.status = mStatus[0];
+        o.status = mStatus[0].str().substr(8,mStatus[0].str().length());
         file = mStatus.suffix();
     }
 }

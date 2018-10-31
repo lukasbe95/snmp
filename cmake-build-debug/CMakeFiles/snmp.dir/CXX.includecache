@@ -21,8 +21,20 @@ vector
 -
 regex
 -
+sstream
+-
+structures.h
+/home/lukas/git_start/snmp/structures.h
 
 /home/lukas/git_start/snmp/parser.h
 string
+-
+structures.h
+/home/lukas/git_start/snmp/structures.h
+
+/home/lukas/git_start/snmp/structures.h
+string
+-
+vector
 -
 
