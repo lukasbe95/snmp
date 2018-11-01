@@ -20,7 +20,9 @@ public:
     void setName(std::string n);
     void setValue(std::string v);
     std::vector<std::string> getPath();
+    void appendPath(std::string element);
     bool createObjectIdFromString(std::string s);
+    void printOID();
 };
 
 

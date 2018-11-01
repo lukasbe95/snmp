@@ -22,7 +22,15 @@ public:
     void setSyntax(std::string s);
     void setAccess(std::string s);
     void setStatus(std::string s);
+    void setDescription(std::string s);
     void setOID(std::vector<std::string> v);
+    void appendOID(std::string element);
+    std::string getName();
+    std::string getSyntax();
+    std::string getAccess();
+    std::string getStatus();
+    std::vector<std::string> getOID();
+    void printOT();
 };
 
 

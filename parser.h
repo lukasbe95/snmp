@@ -17,20 +17,27 @@ private:
     std::string wholeFile;
     std::string pathToFile;
     std::string filename;
+    std::vector<std::string> splittedFile;
     std::vector <DataType> d;
     std::vector <ObjectId> o;
+    std::vector <ObjectType> ot;
 public:
     Parser(std::string p, std::string fn);
     void readFile();
     void searchForOID();
     void searchForOT();
+    void searchForDT();
+    void searchForDT(std::string name);
     void searchForImports();
-    void parseOTSyntax(std::string & file,objectType & o);
-    void parseOTAccess(std::string & file,objectType & o);
-    void parseOTStatus(std::string & file,objectType & o);
-    void parseOTDescription(std::string & file,objectType & o);
-    void parseOToid(std::string & file,objectType & o);
-    void searchInformationsInImports(std::string path, std::string filename);
+    void parseOTSyntax(std::string & file,ObjectType & o);
+    void parseOTAccess(std::string & file,ObjectType & o);
+    void parseOTStatus(std::string & file,ObjectType & o);
+    void parseOTDescription(std::string & file,ObjectType & o);
+    void parseOToid(std::string & file,ObjectType & o);
+    void searchInformationsInImports(std::string path, std::string filename, std::vector<std::string> elementsToImport);
+    void addObjectId(ObjectId obj);
+    void addObjectType(ObjectType obj);
+    void addDataType(DataType obj);
 };
 
 

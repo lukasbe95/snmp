@@ -41,7 +41,18 @@ void ObjectId::setValue(std::string v) {
     this->value = v;
 }
 std::vector<std::string> ObjectId::getPath() {
-    //TODO:implement
+    return this->path;
+}
+void ObjectId::printOID() {
+    std::cout<<"Name: "<<this->name<<std::endl;
+    std::cout<<"Value: "<<this->value<<std::endl;
+    for(auto x: this->path){
+        std::cout<<x<<", ";
+    }
+    std::cout<<std::endl;
+}
+void ObjectId::appendPath(std::string element) {
+    this->path.push_back(element);
 }
 bool ObjectId::createObjectIdFromString(std::string s) {
     std::regex multispace("\\s+");

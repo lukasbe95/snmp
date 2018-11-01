@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+/home/lukas/git_start/snmp/DataType.h
+
+/home/lukas/git_start/snmp/ObjectId.h
+string
+-
+vector
+-
+
+/home/lukas/git_start/snmp/ObjectType.h
+string
+-
+vector
+-
+
 /home/lukas/git_start/snmp/parser.cpp
 parser.h
 /home/lukas/git_start/snmp/parser.h
@@ -29,8 +43,16 @@ structures.h
 /home/lukas/git_start/snmp/parser.h
 string
 -
+list
+-
 structures.h
 /home/lukas/git_start/snmp/structures.h
+DataType.h
+/home/lukas/git_start/snmp/DataType.h
+ObjectId.h
+/home/lukas/git_start/snmp/ObjectId.h
+ObjectType.h
+/home/lukas/git_start/snmp/ObjectType.h
 
 /home/lukas/git_start/snmp/structures.h
 string
