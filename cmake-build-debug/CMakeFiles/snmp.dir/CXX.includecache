@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 /home/lukas/git_start/snmp/DataType.h
+string
+-
 
 /home/lukas/git_start/snmp/ObjectId.h
 string
@@ -20,25 +22,15 @@ string
 vector
 -
 
-/home/lukas/git_start/snmp/parser.cpp
-parser.h
-/home/lukas/git_start/snmp/parser.h
-string
--
+/home/lukas/git_start/snmp/main.cpp
 iostream
+-
+string
 -
 fstream
 -
-algorithm
--
-vector
--
-regex
--
-sstream
--
-structures.h
-/home/lukas/git_start/snmp/structures.h
+parser.h
+/home/lukas/git_start/snmp/parser.h
 
 /home/lukas/git_start/snmp/parser.h
 string

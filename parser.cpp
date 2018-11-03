@@ -13,10 +13,6 @@
 #include "structures.h"
 using namespace std;
 
-struct oid{
-    string name;
-    vector<string> v;
-};
 
 std::vector<std::string> split(std::string s, std::string delimiter){
     size_t pos = 0;
@@ -71,7 +67,6 @@ void Parser::searchForImports() {
         this->searchInformationsInImports("/usr/local/share/snmp/mibs/",importfile,imports);
     }
     }
-
 void Parser::searchInformationsInImports(std::string path, std::string filename,
                                          std::vector<std::string> elementsToImport) {
     Parser* p = new Parser(path,filename);
@@ -82,13 +77,67 @@ void Parser::searchInformationsInImports(std::string path, std::string filename,
 //        p->searchForDT(item);
 //    }
 }
-void Parser::searchForDT(std::string name) {
-    std::string regexWithName = "\\s*" + name + "\\s+::=\\s+";
-    std::smatch mName;
-    std::regex matchDTName(regexWithName);
-    std::string temp = std::move(wholeFile);
-    while(regex_search(temp,mName,matchDTName)){
-        cout<<mName[0]<<endl;
+void Parser::searchForDT() {
+    for(std::vector<std::string>::size_type i = 0; i != splittedFile.size(); i++) {
+        if (splittedFile[i].find("::=")<10000){
+            if (splittedFile[i+1].find("SEQUENCE")<10000){
+                DataType d;
+                std::string sequenceString = "";
+                int j = 3;
+                while ((i+j<splittedFile.size())&&(splittedFile[i+j].find("}")>10000)) {
+                    sequenceString += splittedFile[i+j] + " ";
+                    j++;
+                }
+                d.setName(splittedFile[i-1]);
+                d.setBaseType(sequenceString);
+                i +=j;
+                this->addDataType(d);
+            } else if (splittedFile[i+1].find("CHOICE")<10000){
+                DataType d;
+                std::string choiceString = "";
+                int j = 3;
+                while ((i+j<splittedFile.size())&&(splittedFile[i+j].find("}")>10000)) {
+                    choiceString += splittedFile[i+j] + " ";
+                    j++;
+                }
+                d.setName(splittedFile[i-1]);
+                d.setBaseType(choiceString);
+                this->addDataType(d);
+                i +=j;
+            } else if (splittedFile[i+1].find("[")<10000){
+                DataType d;
+                d.setName(splittedFile[i-1]);
+                d.setAccess(splittedFile[i+1].substr(1,splittedFile[i+1].size()));
+                d.setAccessNum(splittedFile[i+2].substr(0,splittedFile[i+2].size()-1));
+                int j = 4;
+                if (splittedFile[i+j+1].find("(")>10000 && splittedFile[i+j+2].find("(")>10000){
+                    d.setBaseType(splittedFile[i+j]+" "+splittedFile[i+j+1]);
+                    this->addDataType(d);
+                    continue;
+                }
+                int x;
+                d.setBaseType(this->returnTypeAndSetLenght(splittedFile[i+j],x));
+                j += x;
+                if (splittedFile[i+j].find("SIZE")<10000){
+                    d.setSize(splittedFile[i+j+1].substr(1,splittedFile[i+j+1].find(")")-1));
+                } else {
+                    std::string min_v = splittedFile[i+j].substr(1,splittedFile[i+j].find(".")-1);
+                    std::string max_v = splittedFile[i+j].substr(splittedFile[i+j].find(".")+2,splittedFile[i+j].size()-1);
+                    d.setRange(min_v,max_v);
+                }
+                i += j;
+                this->addDataType(d);
+            } else {
+                int x = 0;
+                if (this->returnTypeAndSetLenght(splittedFile[i+1],x) != ""){
+                    DataType d;
+                    d.setName(splittedFile[i-1]);
+                    d.setBaseType(this->returnTypeAndSetLenght(splittedFile[i+1],x));
+                    this->addDataType(d);
+                    i += x;
+                }
+            }
+        }
     }
 }
 void Parser::addObjectId(ObjectId obj) {
@@ -171,6 +220,46 @@ void Parser::searchForOT() {
 //        this->parseOToid(temp,temporaryObjectTypeInstance);
 //        this->addObjectType(temporaryObjectTypeInstance);
 //    }
+}
+void Parser::addDataType(DataType obj) {
+    this->d.push_back(obj);
+}
+std::string Parser::returnTypeAndSetLenght(std::string t, int &n) {
+    std::string toReturn;
+    if (t =="INTEGER"){
+        n = 1;
+        toReturn = "INTEGER";
+    } else if (t =="OCTET") {
+        n = 2;
+        toReturn = "OCTET STRING";
+    } else if (t =="NULL") {
+        n = 1;
+        toReturn = "NULL";
+    } else if (t =="OBJECT") {
+        n = 2;
+        toReturn = "OBJECT IDENTIFIER";
+    } else {
+        n = 0;
+        toReturn = "";
+    }
+    return toReturn;
+
+
+}
+void Parser::printDataTypeVector() {
+    for(std::vector<std::string>::size_type i = 0; i != d.size(); i++) {
+        d[i].printDataType();
+    }
+}
+void Parser::printObjectIdVector() {
+    for(std::vector<std::string>::size_type i = 0; i != o.size(); i++) {
+        o[i].printOID();
+    }
+}
+void Parser::printObjectTypeVector() {
+    for(std::vector<std::string>::size_type i = 0; i != ot.size(); i++) {
+        ot[i].printOT();
+    }
 }
 void Parser::parseOTAccess(std::string &file, ObjectType &o) {
     std::regex matchAccess("ACCESS\\s*.+");

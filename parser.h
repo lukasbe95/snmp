@@ -38,6 +38,10 @@ public:
     void addObjectId(ObjectId obj);
     void addObjectType(ObjectType obj);
     void addDataType(DataType obj);
+    std::string returnTypeAndSetLenght(std::string t, int &n);
+    void printDataTypeVector();
+    void printObjectTypeVector();
+    void printObjectIdVector();
 };
 
 
