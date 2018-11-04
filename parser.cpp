@@ -318,18 +318,24 @@ void Parser::createOutputTree() {
 }
 void Parser::printOutputTree() {
     std::list<ObjectId*>::iterator it = outputTree.begin();
+//    for (std::list<ObjectId*>::iterator it = outputTree.begin() ; it != outputTree.end(); ++it){
+//        (*it)->printOID();
+//    }
     cout<<"---------------------"<<endl;
     (*it)->printOID();
     cout<<"Childs: "<<endl;
-    for (ObjectId* x: this->findChilds(o,(*it)->getName())){
+    for (ObjectId* x: (*it)->getChilds()){
         x->printOID();
     }
     do {
         *it++;
+        if (it == outputTree.end()){
+            break;
+        }
         cout<<"---------------------"<<endl;
         (*it)->printOID();
         cout<<"Childs: "<<endl;
-        for (ObjectId* y:this->findChilds(o,(*it)->getName())){
+        for (ObjectId* y: (*it)->getChilds()){
             y->printOID();
         }
     }while (it != outputTree.end());
