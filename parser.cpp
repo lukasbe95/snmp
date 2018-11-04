@@ -376,3 +376,8 @@ std::vector<ObjectId> Parser::divideOidIntoObjects(ObjectId o) {
     temp.push_back(last);
     return temp;
 }
+ObjectId* Parser::returnNode(std::string address) {
+    std::vector<std::string> adr = split(address,".");
+
+
+}
