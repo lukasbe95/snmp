@@ -10,6 +10,7 @@
 #include <vector>
 #include <regex>
 #include <sstream>
+#include <list>
 #include "structures.h"
 using namespace std;
 
@@ -41,6 +42,7 @@ void Parser::readFile() {
             wholeFile += line+" ";
         }
     }
+    file.close();
     std::regex whitespaces("\\s+|,\\s*");
     splittedFile = split(regex_replace(wholeFile,whitespaces," ")," ");
 //    for (auto x:splittedFile){
@@ -63,19 +65,32 @@ void Parser::searchForImports() {
             imports.push_back(splittedFile[i]);
         }
     }
+
     if(process){
         this->searchInformationsInImports("/usr/local/share/snmp/mibs/",importfile,imports);
     }
     }
 void Parser::searchInformationsInImports(std::string path, std::string filename,
                                          std::vector<std::string> elementsToImport) {
-    Parser* p = new Parser(path,filename);
+    Parser* p = new Parser(path,filename+".txt");
     p->readFile();
     p->searchForImports();
-//    p->searchForOID();
-//    for(auto item: elementsToImport){
-//        p->searchForDT(item);
-//    }
+    p->searchForOID();
+    p->searchForOT();
+    p->searchForDT();
+    for (auto oid: p->getObjectIdVector()){
+        this->addObjectId(oid);
+    }
+    for (auto ot:p->getObjectTypeVector()){
+        this->addObjectType(ot);
+    }
+    for (DataType dt:p->getDataTypeVector()){
+        if(std::find(elementsToImport.begin(),elementsToImport.end(),dt.getName())!=elementsToImport.end()){
+            this->addDataType(dt);
+        }
+    }
+
+
 }
 void Parser::searchForDT() {
     for(std::vector<std::string>::size_type i = 0; i != splittedFile.size(); i++) {
@@ -116,7 +131,7 @@ void Parser::searchForDT() {
                     continue;
                 }
                 int x;
-                d.setBaseType(this->returnTypeAndSetLenght(splittedFile[i+j],x));
+                d.setBaseType(this->returnTypeAndSetLength(splittedFile[i+j],x));
                 j += x;
                 if (splittedFile[i+j].find("SIZE")<10000){
                     d.setSize(splittedFile[i+j+1].substr(1,splittedFile[i+j+1].find(")")-1));
@@ -129,10 +144,10 @@ void Parser::searchForDT() {
                 this->addDataType(d);
             } else {
                 int x = 0;
-                if (this->returnTypeAndSetLenght(splittedFile[i+1],x) != ""){
+                if (this->returnTypeAndSetLength(splittedFile[i+1],x) != ""){
                     DataType d;
                     d.setName(splittedFile[i-1]);
-                    d.setBaseType(this->returnTypeAndSetLenght(splittedFile[i+1],x));
+                    d.setBaseType(this->returnTypeAndSetLength(splittedFile[i+1],x));
                     this->addDataType(d);
                     i += x;
                 }
@@ -152,7 +167,6 @@ void Parser::searchForOID() {
             &&splittedFile[i+2].find("::=")<10000){
             ObjectId o;
             o.setName(splittedFile[i-1]);
-            cout<<o.getName()<<endl;
             int j = 4;
             while((i+j<splittedFile.size())&&splittedFile[i+j].find("}")>1000){
                 o.appendPath(splittedFile[i+j]);
@@ -193,38 +207,29 @@ void Parser::searchForOT() {
                 j++;
             }
             o.setStatus(temporaryStatusValue);
+            //set description
+            string temporaryDescriptionValue = "";
+            j++;
+            while((i+j<splittedFile.size())&&splittedFile[i+j].find("::=")>1000){
+                temporaryDescriptionValue += splittedFile[i+j] + " ";
+                j++;
+            }
+            o.setDescription(temporaryDescriptionValue);
             //set oid
-            while((i+j<splittedFile.size())&&splittedFile[i+j].find("::=")>1000) j++;
             j+= 2; //must ignore ::= and {
             while((i+j<splittedFile.size())&&splittedFile[i+j].find("}")>1000) {
                 o.appendOID(splittedFile[i+j]);
                 j++;
             }
             i += j;
-            o.printOT();
             this->addObjectType(o);
         }
     }
-//    std::regex matchOT(".+\\s*OBJECT-TYPE");
-//    std::vector<ObjectType> v;
-//    std::smatch mOT;
-//    std::string temp = std::move(wholeFile);
-//    while(regex_search(temp,mOT,matchOT)){
-//        ObjectType temporaryObjectTypeInstance;
-//        temporaryObjectTypeInstance.setName(mOT[0].str().substr(0,mOT[0].str().find("OBJECT-TYPE")));
-//        temp = mOT.suffix();
-//        this->parseOTSyntax(temp,temporaryObjectTypeInstance);
-//        this->parseOTAccess(temp,temporaryObjectTypeInstance);
-//        this->parseOTStatus(temp,temporaryObjectTypeInstance);
-//        this->parseOTDescription(temp,temporaryObjectTypeInstance);
-//        this->parseOToid(temp,temporaryObjectTypeInstance);
-//        this->addObjectType(temporaryObjectTypeInstance);
-//    }
 }
 void Parser::addDataType(DataType obj) {
     this->d.push_back(obj);
 }
-std::string Parser::returnTypeAndSetLenght(std::string t, int &n) {
+std::string Parser::returnTypeAndSetLength(std::string t, int &n) {
     std::string toReturn;
     if (t =="INTEGER"){
         n = 1;
@@ -261,54 +266,107 @@ void Parser::printObjectTypeVector() {
         ot[i].printOT();
     }
 }
-void Parser::parseOTAccess(std::string &file, ObjectType &o) {
-    std::regex matchAccess("ACCESS\\s*.+");
-    std::smatch mAccess;
-    if(regex_search(file,mAccess,matchAccess)){
-        o.setAccess(mAccess[0].str().substr(8,mAccess[0].str().length()));
-        file = mAccess.suffix();
-    }
+std::vector <DataType> Parser::getDataTypeVector() {
+    return d;
 }
-void Parser::parseOTSyntax(std::string &file, ObjectType &o) {
-    std::smatch mSyntax;
-    std::regex matchSyntaxNormal("SYNTAX\\s.+");
-    std::regex matchSyntaxInt("SYNTAX\\s.+\\{.*?\\n}");
-    std::regex matchSyntaxIntMultiline("SYNTAX\\s.+\\{");
-    if(regex_search(file,mSyntax,matchSyntaxInt)) {
-        o.setSyntax(mSyntax[0].str().substr(7,mSyntax.length()));
-        file = mSyntax.suffix();
-    }else if(regex_search(file,mSyntax,matchSyntaxInt)){
-        o.setSyntax(mSyntax[0].str().substr(7,mSyntax.length()));
-        file = mSyntax.suffix();
-    }else if (regex_search(file,mSyntax,matchSyntaxNormal)){
-        o.setSyntax(mSyntax[0].str().substr(7,mSyntax.length()));
-        file = mSyntax.suffix();
-    }
+std::vector <ObjectId> Parser::getObjectIdVector() {
+    return o;
 }
-void Parser::parseOTDescription(std::string &file, ObjectType &o) {
-    std::smatch mDescription;
-    std::regex matchDescription("\\s*?DESCRIPTION\\s*");
-    if(regex_search(file,mDescription,matchDescription)){
-        o.setDescription("");
-        file = mDescription.suffix();
-    }
+std::vector <ObjectType> Parser::getObjectTypeVector() {
+    return ot;
 }
-void Parser::parseOToid(std::string &file, ObjectType &o) {
-    std::smatch mDescription;
-    std::regex matchEndOfOT("::=\\s*\\{.*?}");
-    if(regex_search(file,mDescription,matchEndOfOT)){
-        std::string collectionToParse = mDescription[0].str();
-        collectionToParse.erase(0,collectionToParse.find("{")+1);
-        std::vector<std::string> v = split(collectionToParse," ");
-        o.setOID(v);
-        file = mDescription.suffix();
-    }
+void Parser::setDataTypeVector(std::vector<DataType> dt) {
+    d = dt;
 }
-void Parser::parseOTStatus(std::string &file, ObjectType &o) {
-    std::smatch mStatus;
-    std::regex matchStatus("STATUS\\s*.+");
-    if(regex_search(file,mStatus,matchStatus)){
-        o.setStatus(mStatus[0].str().substr(8,mStatus[0].str().length()));
-        file = mStatus.suffix();
+void Parser::setObjectIdVector(std::vector<ObjectId> oid) {
+    o = oid;
+}
+void Parser::setObjectTypeVector(std::vector<ObjectType> o) {
+    ot = o;
+}
+void Parser::createOutputTree() {
+    ObjectId* start;
+    for(std::vector<std::string>::size_type i = 0; i != o.size(); i++) {
+        if (o[i].getPath().size() > 2){
+            for (ObjectId o:this->divideOidIntoObjects(o[i])){
+                this->addObjectId(o);
+            }
+            o.erase(o.begin()+i,o.begin()+i+1);
+        }
     }
+
+    for(std::vector<std::string>::size_type i = 0; i != o.size(); i++) {
+        if (o[i].getName() == "iso"){
+            start = new ObjectId(o[i].getName(),o[i].getValue());
+            break;
+        }
+    }
+//    for (auto x  : o){
+//        x.printOID();
+//    }
+    outputTree.push_back(start);
+    std::list<ObjectId*>::iterator it = outputTree.begin();
+    for (ObjectId* x:this->findChilds(o,(*it)->getName())){
+        outputTree.push_back(x);
+    }
+    do {
+        *it++;
+        for (ObjectId* y:this->findChilds(o,(*it)->getName())){
+            outputTree.push_back(y);
+        }
+    }while (it != outputTree.end()&&(outputTree.size()!=o.size()));
+}
+void Parser::printOutputTree() {
+    std::list<ObjectId*>::iterator it = outputTree.begin();
+    cout<<"---------------------"<<endl;
+    (*it)->printOID();
+    cout<<"Childs: "<<endl;
+    for (ObjectId* x: this->findChilds(o,(*it)->getName())){
+        x->printOID();
+    }
+    do {
+        *it++;
+        cout<<"---------------------"<<endl;
+        (*it)->printOID();
+        cout<<"Childs: "<<endl;
+        for (ObjectId* y:this->findChilds(o,(*it)->getName())){
+            y->printOID();
+        }
+    }while (it != outputTree.end());
+}
+std::vector<ObjectId*> Parser::findChilds(std::vector<ObjectId> objects, std::string name) {
+    std::vector<ObjectId*> listToReturn;
+    for(std::vector<std::string>::size_type i = 0; i != objects.size(); i++) {
+        if (objects[i].getPath().empty()){
+            continue;
+        }
+        if (objects[i].getPath()[0].find(name)<10000){
+            listToReturn.push_back(new ObjectId(objects[i].getName(),objects[i].getValue()));
+        }
+    }
+    return listToReturn;
+}
+std::vector<ObjectId> Parser::divideOidIntoObjects(ObjectId o) {
+    std::vector<ObjectId> temp;
+    for(auto i = 0; i != o.getPath().size()-1;i++) {
+        ObjectId element;
+        if (i == 0){
+            element.setName(o.getPath()[i]);
+            element.setValue("1");
+            temp.push_back(element);
+            continue;
+        }
+        element.setName(o.getPath()[i].substr(0,o.getPath()[i].find("(")));
+        element.setValue(o.getPath()[i].substr(o.getPath()[i].find("(")+1,o.getPath()[i].find(")")-4));
+        element.appendPath(o.getPath()[i-1]);
+        element.appendPath(element.getValue());
+        temp.push_back(element);
+    }
+    ObjectId last;
+    last.setName(o.getName());
+    last.setValue(o.getValue());
+    last.appendPath(temp.back().getName());
+    last.appendPath(last.getValue());
+    temp.push_back(last);
+    return temp;
 }

@@ -47,11 +47,15 @@ std::string ObjectType::getSyntax() {
 void ObjectType::appendOID(std::string element) {
     this->oid.push_back(element);
 }
+std::string ObjectType::getDescription() {
+    return this->description;
+}
 void ObjectType::printOT() {
     std::cout<<"Name: "<<name<<std::endl;
     std::cout<<"Syntax: "<<syntax<<std::endl;
     std::cout<<"Access: "<<access<<std::endl;
     std::cout<<"Status: "<<status<<std::endl;
+    std::cout<<"Description: "<<description<<std::endl;
     std::cout<<"OID: ";
     for(auto x:oid){
         std::cout<<x<<" ";

@@ -33,6 +33,9 @@ void DataType::setRange(std::string min_v, std::string max_v) {
 void DataType::setSize(std::string s) {
     this->size = s;
 }
+std::string DataType::getName() {
+    return this->name;
+}
 void DataType::printDataType() {
     std::cout<<"Name: "<<name<<std::endl;
     std::cout<<"Access(num):"<<access<<"("<<access_number<<")"<<std::endl;

@@ -29,6 +29,7 @@ public:
     std::string getSyntax();
     std::string getAccess();
     std::string getStatus();
+    std::string getDescription();
     std::vector<std::string> getOID();
     void printOT();
 };

@@ -25,6 +25,7 @@ public:
     void setRange(std::string min_v,std::string max_v);
     void setSize(std::string s);
     void printDataType();
+    std::string getName();
 
 };
 

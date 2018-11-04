@@ -7,11 +7,14 @@
 
 #include <string>
 #include <vector>
+
 class ObjectId {
 private:
     std::string value;
     std::string name;
     std::vector<std::string> path;
+    std::vector<ObjectId*> childs;
+    bool visited;
 public:
     ObjectId(std::string n,std::string v);
     ObjectId();
@@ -21,8 +24,11 @@ public:
     void setValue(std::string v);
     std::vector<std::string> getPath();
     void appendPath(std::string element);
-    bool createObjectIdFromString(std::string s);
     void printOID();
+    std::vector<ObjectId*> getChilds();
+    void addChild(ObjectId* o);
+    void setVisited(bool x);
+    bool getVisited();
 };
 
 

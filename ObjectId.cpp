@@ -54,21 +54,16 @@ void ObjectId::printOID() {
 void ObjectId::appendPath(std::string element) {
     this->path.push_back(element);
 }
-bool ObjectId::createObjectIdFromString(std::string s) {
-    std::regex multispace("\\s+");
-    std::vector<std::string> v = splitOI(regex_replace(s,multispace," ")," ");
-    name = v[0];
-    value = v[v.size()-1];
-    std::cout<<v[0]<<std::endl;
-    std::cout<<v[v.size()-1]<<std::endl;
-    bool pushPath = false;
-    v.pop_back();
-    for(auto i: v){
-        if (i.find("{")<1000){
-            pushPath = true;
-        } else if(pushPath){
-            path.push_back(i);
-        }
-    }
-    return true;
+void ObjectId::addChild(ObjectId* o) {
+    this->childs.push_back(o);
 }
+std::vector<ObjectId*> ObjectId::getChilds() {
+    return this->childs;
+}
+void ObjectId::setVisited(bool x) {
+    this->visited = x;
+}
+bool ObjectId::getVisited() {
+    return this->visited;
+}
+
