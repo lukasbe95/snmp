@@ -48,7 +48,7 @@ public:
     ObjectId* returnNode(std::string address);
     std::vector<ObjectId> divideOidIntoObjects(ObjectId o);
     std::vector<ObjectId*> findChilds(std::vector<ObjectId> objects, std::string name);
-
+    void createOIDFromObjectType();
 };
 
 

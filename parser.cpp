@@ -97,14 +97,12 @@ void Parser::searchForDT() {
         if (splittedFile[i].find("::=")<10000){
             if (splittedFile[i+1].find("SEQUENCE")<10000){
                 DataType d;
-                std::string sequenceString = "";
                 int j = 3;
                 while ((i+j<splittedFile.size())&&(splittedFile[i+j].find("}")>10000)) {
-                    sequenceString += splittedFile[i+j] + " ";
+                    d.appendSequence(splittedFile[i+j]);
                     j++;
                 }
                 d.setName(splittedFile[i-1]);
-                d.setBaseType(sequenceString);
                 i +=j;
                 this->addDataType(d);
             } else if (splittedFile[i+1].find("CHOICE")<10000){
@@ -375,5 +373,11 @@ std::vector<ObjectId> Parser::divideOidIntoObjects(ObjectId o) {
 ObjectId* Parser::returnNode(std::string address) {
     std::vector<std::string> adr = split(address,".");
 
-
+}
+void Parser::createOIDFromObjectType() {
+    for(ObjectType i: this->ot){
+        ObjectId o;
+        o.createOID(i.getName(),i.getOID().back(),i.getOID());
+        this->addObjectId(o);
+    }
 }

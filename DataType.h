@@ -6,6 +6,7 @@
 #define SNMP_DATATYPE_H
 
 #include <string>
+#include <list>
 
 class DataType {
 private:
@@ -16,6 +17,8 @@ private:
     std::string min_value;
     std::string max_value;
     std::string size;
+    std::list<std::string> sequence;
+
 public:
     DataType();
     void setName(std::string n);
@@ -24,6 +27,9 @@ public:
     void setBaseType(std::string t);
     void setRange(std::string min_v,std::string max_v);
     void setSize(std::string s);
+    void setSequence(std::string s);
+    std::list<std::string> getSequence();
+    void appendSequence(std::string s);
     void printDataType();
     std::string getName();
 

@@ -23,6 +23,8 @@ public:
     void setName(std::string n);
     void setValue(std::string v);
     std::vector<std::string> getPath();
+    void setPath(std::vector<std::string> p);
+    void createOID(std::string n,std::string v,std::vector<std::string> p);
     void appendPath(std::string element);
     void printOID();
     std::vector<ObjectId*> getChilds();

@@ -9,6 +9,8 @@
 /home/lukas/git_start/snmp/DataType.h
 string
 -
+list
+-
 
 /home/lukas/git_start/snmp/ObjectId.h
 string
@@ -21,6 +23,16 @@ string
 -
 vector
 -
+
+/home/lukas/git_start/snmp/main.cpp
+iostream
+-
+string
+-
+fstream
+-
+parser.h
+/home/lukas/git_start/snmp/parser.h
 
 /home/lukas/git_start/snmp/parser.cpp
 parser.h

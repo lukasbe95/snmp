@@ -5,6 +5,19 @@
 #include "DataType.h"
 #include <iostream>
 
+std::list<std::string> splitToList(std::string s, std::string delimiter){
+    size_t pos = 0;
+    std::string token;
+    std::list<std::string> v;
+    while ((pos = s.find(delimiter)) != std::string::npos) {
+        token = s.substr(0, pos);
+        if(token !=""&&token!=" "){
+            v.push_back(token);
+        }
+        s.erase(0, pos + 1);
+    }
+    return v;
+}
 DataType::DataType() {
     this->name = "";
     this->access = "";
@@ -42,4 +55,18 @@ void DataType::printDataType() {
     std::cout<<"Base type: "<<base_type<<std::endl;
     std::cout<<"Range: "<<min_value<<","<<max_value<<std::endl;
     std::cout<<"Size: "<<size<<std::endl;
+    std::cout<<"Sequence: "<<std::endl;
+    for (auto x : this->sequence){
+        std::cout<<x<<" ";
+    }
+    std::cout<<std::endl;
+}
+void DataType::setSequence(std::string s) {
+    this->sequence = splitToList(s," ");
+}
+void DataType::appendSequence(std::string s) {
+    this->sequence.push_back(s);
+}
+std::list<std::string> DataType::getSequence() {
+    return this->sequence;
 }

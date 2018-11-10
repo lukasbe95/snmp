@@ -66,4 +66,11 @@ void ObjectId::setVisited(bool x) {
 bool ObjectId::getVisited() {
     return this->visited;
 }
-
+void ObjectId::setPath(std::vector<std::string> p) {
+    this->path = p;
+}
+void ObjectId::createOID(std::string n, std::string v, std::vector<std::string> p) {
+    this->name = n;
+    this->value = v;
+    this->path = p;
+}
