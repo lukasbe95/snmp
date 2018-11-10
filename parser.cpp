@@ -108,16 +108,10 @@ void Parser::searchForDT() {
                 i +=j;
                 this->addDataType(d);
             } else if (splittedFile[i+1].find("CHOICE")<10000){
-                DataType d;
-                std::string choiceString = "";
                 int j = 3;
                 while ((i+j<splittedFile.size())&&(splittedFile[i+j].find("}")>10000)) {
-                    choiceString += splittedFile[i+j] + " ";
                     j++;
                 }
-                d.setName(splittedFile[i-1]);
-                d.setBaseType(choiceString);
-                this->addDataType(d);
                 i +=j;
             } else if (splittedFile[i+1].find("[")<10000){
                 DataType d;
@@ -301,19 +295,21 @@ void Parser::createOutputTree() {
             break;
         }
     }
-//    for (auto x  : o){
-//        x.printOID();
-//    }
+
     outputTree.push_back(start);
     std::list<ObjectId*>::iterator it = outputTree.begin();
     for (ObjectId* x:this->findChilds(o,(*it)->getName())){
         outputTree.push_back(x);
+        x->printOID();
     }
+    cout<<"-----------------------------"<<endl;
     do {
         *it++;
         for (ObjectId* y:this->findChilds(o,(*it)->getName())){
             outputTree.push_back(y);
+            y->printOID();
         }
+        cout<<"-----------------------------"<<endl;
     }while (it != outputTree.end()&&(outputTree.size()!=o.size()));
 }
 void Parser::printOutputTree() {

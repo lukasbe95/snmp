@@ -12,8 +12,9 @@ int main() {
     p->searchForOID();
     p->searchForOT();
     p->searchForDT();
-    p->createOutputTree();
-    p->printOutputTree();
+    p->printDataTypeVector();
+//    p->createOutputTree();
+//    p->printOutputTree();
     delete(p);
 
     return 0;
