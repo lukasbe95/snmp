@@ -12,11 +12,13 @@ int main() {
     p->searchForOID();
     p->searchForOT();
     p->searchForDT();
-    p->createOIDFromObjectType();
-    p->printObjectIdVector();
+//    p->createOIDFromObjectType();
+//    p->printObjectIdVector();
 //    p->printDataTypeVector();
-//    p->createOutputTree();
+    p->createOutputTree();
 //    p->printOutputTree();
+    ObjectId* t = p->returnNode("1.3.6.1.2.1");
+    t->printOID();
     delete(p);
 
     return 0;

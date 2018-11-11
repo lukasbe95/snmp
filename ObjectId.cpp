@@ -35,10 +35,10 @@ std::string ObjectId::getValue() {
     return this->value;
 }
 void ObjectId::setName(std::string n) {
-    this->name = n;
+    name = n;
 }
 void ObjectId::setValue(std::string v) {
-    this->value = v;
+    value = v;
 }
 std::vector<std::string> ObjectId::getPath() {
     return this->path;

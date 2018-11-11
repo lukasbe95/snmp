@@ -26,6 +26,7 @@ std::vector<std::string> split(std::string s, std::string delimiter){
         }
         s.erase(0, pos + 1);
     }
+    v.push_back(s);
     return v;
 }
 Parser::Parser(std::string p, std::string fn) {
@@ -182,6 +183,17 @@ void Parser::searchForOT() {
                 temporarySyntaxValue += splittedFile[i+j] + " ";
                 j++;
             }
+//            std::regex base_regex("[[:digit:]]+..[[:digit:]]+");
+//            std::regex base_regex("(?<start>\\d+)..(?<end>\\d+)");
+//            std::smatch regex_match;
+//            cout<<temporarySyntaxValue<<endl;
+//            cout<<std::regex_match(temporarySyntaxValue,regex_match,base_regex)<<endl;
+//            if(std::regex_match(temporarySyntaxValue,regex_match,base_regex)){
+//                for(auto x: regex_match){
+//                    cout<<x<<endl;
+//                }
+//                cout<<"cos"<<endl;
+//            }
             o.setSyntax(temporarySyntaxValue);
             //set access
             j++;
@@ -297,18 +309,16 @@ void Parser::createOutputTree() {
     outputTree.push_back(start);
     std::list<ObjectId*>::iterator it = outputTree.begin();
     for (ObjectId* x:this->findChilds(o,(*it)->getName())){
+        (*it)->addChild(x);
         outputTree.push_back(x);
-        x->printOID();
     }
-    cout<<"-----------------------------"<<endl;
     do {
         *it++;
         for (ObjectId* y:this->findChilds(o,(*it)->getName())){
+            (*it)->addChild(y);
             outputTree.push_back(y);
-            y->printOID();
         }
-        cout<<"-----------------------------"<<endl;
-    }while (it != outputTree.end()&&(outputTree.size()!=o.size()));
+    }while (it != outputTree.end()&&(outputTree.size() < o.size()));
 }
 void Parser::printOutputTree() {
     std::list<ObjectId*>::iterator it = outputTree.begin();
@@ -372,7 +382,27 @@ std::vector<ObjectId> Parser::divideOidIntoObjects(ObjectId o) {
 }
 ObjectId* Parser::returnNode(std::string address) {
     std::vector<std::string> adr = split(address,".");
-
+    ObjectId* it = outputTree.front();
+    ObjectId* tempPointer;
+    ObjectId* empty;
+    if(!(it->getName()==adr[0]||it->getValue()==adr[0])){
+        cout<<"Error address"<<endl;
+        return empty;
+    }
+    for(int i=1;i<adr.size();i++){
+        for(ObjectId* child:it->getChilds()){
+            if(child->getName()==adr[i]||child->getValue()==adr[i]){
+                tempPointer = child;
+                break;
+            }
+        }
+        if(it == tempPointer){
+            cout<<"Error address"<<endl;
+            return empty;
+        }
+        it = tempPointer;
+    }
+    return it;
 }
 void Parser::createOIDFromObjectType() {
     for(ObjectType i: this->ot){
