@@ -70,3 +70,16 @@ void DataType::appendSequence(std::string s) {
 std::list<std::string> DataType::getSequence() {
     return this->sequence;
 }
+std::string DataType::getBaseType() {
+    return this->base_type;
+}
+int DataType::returnSize() {
+    if(this->size == ""){
+        return 0;
+    } else {
+        return std::stoi(this->size);
+    }
+}
+std::string DataType::getAccess() {
+    return this->access;
+}

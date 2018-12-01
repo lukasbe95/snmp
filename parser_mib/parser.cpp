@@ -411,3 +411,36 @@ void Parser::createOIDFromObjectType() {
         this->addObjectId(o);
     }
 }
+void Parser::getBerEncodedLeaf(std::string pathToLeaf, std::string value) {
+    ObjectId* leaf = this->returnNode(pathToLeaf);
+    if (leaf->getChilds().empty()){
+        ObjectType leaf_type;
+        for(ObjectType o : ot){
+            if(o.getName()==leaf->getName()){
+                leaf_type = o;
+                break;
+            }
+        }
+        leaf_type.printOT();
+        for (DataType x : d){
+            if(leaf_type.getSyntax().find(x.getName())<10000){
+                cout<<"Finded"<<endl;
+                x.printDataType();
+            }
+        }
+        if(leaf_type.checkIfValueIsPermitted(this->d,value)){
+            //process value
+            cout<<"Good value!"<<endl;
+        } else {
+            if(leaf_type.getIsSequenceType()){
+                //process sequence or choice ??
+                cout<<"Sequence"<<endl;
+            }else{
+                //send NULL
+                cout<<"Null"<<endl;
+            }
+        }
+    } else {
+        std::cout << "It's not a leaf!!!"<<std::endl;
+    }
+}

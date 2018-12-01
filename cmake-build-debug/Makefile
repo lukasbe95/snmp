@@ -123,86 +123,32 @@ snmp/fast:
 	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/build
 .PHONY : snmp/fast
 
-DataType.o: DataType.cpp.o
+ber_coder/BerCoder.o: ber_coder/BerCoder.cpp.o
 
-.PHONY : DataType.o
-
-# target to build an object file
-DataType.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/DataType.cpp.o
-.PHONY : DataType.cpp.o
-
-DataType.i: DataType.cpp.i
-
-.PHONY : DataType.i
-
-# target to preprocess a source file
-DataType.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/DataType.cpp.i
-.PHONY : DataType.cpp.i
-
-DataType.s: DataType.cpp.s
-
-.PHONY : DataType.s
-
-# target to generate assembly for a file
-DataType.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/DataType.cpp.s
-.PHONY : DataType.cpp.s
-
-ObjectId.o: ObjectId.cpp.o
-
-.PHONY : ObjectId.o
+.PHONY : ber_coder/BerCoder.o
 
 # target to build an object file
-ObjectId.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ObjectId.cpp.o
-.PHONY : ObjectId.cpp.o
+ber_coder/BerCoder.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o
+.PHONY : ber_coder/BerCoder.cpp.o
 
-ObjectId.i: ObjectId.cpp.i
+ber_coder/BerCoder.i: ber_coder/BerCoder.cpp.i
 
-.PHONY : ObjectId.i
-
-# target to preprocess a source file
-ObjectId.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ObjectId.cpp.i
-.PHONY : ObjectId.cpp.i
-
-ObjectId.s: ObjectId.cpp.s
-
-.PHONY : ObjectId.s
-
-# target to generate assembly for a file
-ObjectId.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ObjectId.cpp.s
-.PHONY : ObjectId.cpp.s
-
-ObjectType.o: ObjectType.cpp.o
-
-.PHONY : ObjectType.o
-
-# target to build an object file
-ObjectType.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ObjectType.cpp.o
-.PHONY : ObjectType.cpp.o
-
-ObjectType.i: ObjectType.cpp.i
-
-.PHONY : ObjectType.i
+.PHONY : ber_coder/BerCoder.i
 
 # target to preprocess a source file
-ObjectType.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ObjectType.cpp.i
-.PHONY : ObjectType.cpp.i
+ber_coder/BerCoder.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.i
+.PHONY : ber_coder/BerCoder.cpp.i
 
-ObjectType.s: ObjectType.cpp.s
+ber_coder/BerCoder.s: ber_coder/BerCoder.cpp.s
 
-.PHONY : ObjectType.s
+.PHONY : ber_coder/BerCoder.s
 
 # target to generate assembly for a file
-ObjectType.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ObjectType.cpp.s
-.PHONY : ObjectType.cpp.s
+ber_coder/BerCoder.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.s
+.PHONY : ber_coder/BerCoder.cpp.s
 
 main.o: main.cpp.o
 
@@ -231,32 +177,113 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-parser.o: parser.cpp.o
+parser_mib/DataType.o: parser_mib/DataType.cpp.o
 
-.PHONY : parser.o
+.PHONY : parser_mib/DataType.o
 
 # target to build an object file
-parser.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser.cpp.o
-.PHONY : parser.cpp.o
+parser_mib/DataType.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/DataType.cpp.o
+.PHONY : parser_mib/DataType.cpp.o
 
-parser.i: parser.cpp.i
+parser_mib/DataType.i: parser_mib/DataType.cpp.i
 
-.PHONY : parser.i
+.PHONY : parser_mib/DataType.i
 
 # target to preprocess a source file
-parser.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser.cpp.i
-.PHONY : parser.cpp.i
+parser_mib/DataType.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/DataType.cpp.i
+.PHONY : parser_mib/DataType.cpp.i
 
-parser.s: parser.cpp.s
+parser_mib/DataType.s: parser_mib/DataType.cpp.s
 
-.PHONY : parser.s
+.PHONY : parser_mib/DataType.s
 
 # target to generate assembly for a file
-parser.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser.cpp.s
-.PHONY : parser.cpp.s
+parser_mib/DataType.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/DataType.cpp.s
+.PHONY : parser_mib/DataType.cpp.s
+
+parser_mib/ObjectId.o: parser_mib/ObjectId.cpp.o
+
+.PHONY : parser_mib/ObjectId.o
+
+# target to build an object file
+parser_mib/ObjectId.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectId.cpp.o
+.PHONY : parser_mib/ObjectId.cpp.o
+
+parser_mib/ObjectId.i: parser_mib/ObjectId.cpp.i
+
+.PHONY : parser_mib/ObjectId.i
+
+# target to preprocess a source file
+parser_mib/ObjectId.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectId.cpp.i
+.PHONY : parser_mib/ObjectId.cpp.i
+
+parser_mib/ObjectId.s: parser_mib/ObjectId.cpp.s
+
+.PHONY : parser_mib/ObjectId.s
+
+# target to generate assembly for a file
+parser_mib/ObjectId.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectId.cpp.s
+.PHONY : parser_mib/ObjectId.cpp.s
+
+parser_mib/ObjectType.o: parser_mib/ObjectType.cpp.o
+
+.PHONY : parser_mib/ObjectType.o
+
+# target to build an object file
+parser_mib/ObjectType.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.o
+.PHONY : parser_mib/ObjectType.cpp.o
+
+parser_mib/ObjectType.i: parser_mib/ObjectType.cpp.i
+
+.PHONY : parser_mib/ObjectType.i
+
+# target to preprocess a source file
+parser_mib/ObjectType.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.i
+.PHONY : parser_mib/ObjectType.cpp.i
+
+parser_mib/ObjectType.s: parser_mib/ObjectType.cpp.s
+
+.PHONY : parser_mib/ObjectType.s
+
+# target to generate assembly for a file
+parser_mib/ObjectType.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.s
+.PHONY : parser_mib/ObjectType.cpp.s
+
+parser_mib/parser.o: parser_mib/parser.cpp.o
+
+.PHONY : parser_mib/parser.o
+
+# target to build an object file
+parser_mib/parser.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/parser.cpp.o
+.PHONY : parser_mib/parser.cpp.o
+
+parser_mib/parser.i: parser_mib/parser.cpp.i
+
+.PHONY : parser_mib/parser.i
+
+# target to preprocess a source file
+parser_mib/parser.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/parser.cpp.i
+.PHONY : parser_mib/parser.cpp.i
+
+parser_mib/parser.s: parser_mib/parser.cpp.s
+
+.PHONY : parser_mib/parser.s
+
+# target to generate assembly for a file
+parser_mib/parser.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/parser.cpp.s
+.PHONY : parser_mib/parser.cpp.s
 
 # Help Target
 help:
@@ -267,21 +294,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... snmp"
-	@echo "... DataType.o"
-	@echo "... DataType.i"
-	@echo "... DataType.s"
-	@echo "... ObjectId.o"
-	@echo "... ObjectId.i"
-	@echo "... ObjectId.s"
-	@echo "... ObjectType.o"
-	@echo "... ObjectType.i"
-	@echo "... ObjectType.s"
+	@echo "... ber_coder/BerCoder.o"
+	@echo "... ber_coder/BerCoder.i"
+	@echo "... ber_coder/BerCoder.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... parser.o"
-	@echo "... parser.i"
-	@echo "... parser.s"
+	@echo "... parser_mib/DataType.o"
+	@echo "... parser_mib/DataType.i"
+	@echo "... parser_mib/DataType.s"
+	@echo "... parser_mib/ObjectId.o"
+	@echo "... parser_mib/ObjectId.i"
+	@echo "... parser_mib/ObjectId.s"
+	@echo "... parser_mib/ObjectType.o"
+	@echo "... parser_mib/ObjectType.i"
+	@echo "... parser_mib/ObjectType.s"
+	@echo "... parser_mib/parser.o"
+	@echo "... parser_mib/parser.i"
+	@echo "... parser_mib/parser.s"
 .PHONY : help
 
 

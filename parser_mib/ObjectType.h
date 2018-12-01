@@ -7,7 +7,7 @@
 
 #include <string>
 #include <vector>
-
+#include "DataType.h"
 class ObjectType {
 private:
     std::string name;
@@ -15,6 +15,10 @@ private:
     std::string access;
     std::string status;
     std::string description;
+    long syntax_min;
+    long syntax_max;
+    std::string type;
+    bool isSequenceType;
     std::vector<std::string> oid;
 public:
     ObjectType();
@@ -30,8 +34,18 @@ public:
     std::string getAccess();
     std::string getStatus();
     std::string getDescription();
+    bool getIsSequenceType();
     std::vector<std::string> getOID();
     void printOT();
+    void setMinMaxValue(std::string syntax);
+    void setType(std::string syntax);
+    std::string getType();
+    void setDefaultInt();
+    void setDefaultNull();
+    void setDefaultOctet();
+    void preprocessSyntax(std::vector <DataType> &externalTypes);
+    bool checkIfValueIsPermitted(std::vector <DataType> &externalTypes, std::string value);
+    bool isItInteger(std::string val);
 };
 
 

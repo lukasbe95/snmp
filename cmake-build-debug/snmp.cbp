@@ -84,34 +84,40 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/lukas/git_start/snmp/DataType.cpp">
+		<Unit filename="/home/lukas/git_start/snmp/ber_coder/BerCoder.cpp">
 			<Option target="snmp"/>
 		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/DataType.h">
-			<Option target="snmp"/>
-		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/ObjectId.cpp">
-			<Option target="snmp"/>
-		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/ObjectId.h">
-			<Option target="snmp"/>
-		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/ObjectType.cpp">
-			<Option target="snmp"/>
-		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/ObjectType.h">
+		<Unit filename="/home/lukas/git_start/snmp/ber_coder/BerCoder.h">
 			<Option target="snmp"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/main.cpp">
 			<Option target="snmp"/>
 		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/parser.cpp">
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/DataType.cpp">
 			<Option target="snmp"/>
 		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/parser.h">
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/DataType.h">
 			<Option target="snmp"/>
 		</Unit>
-		<Unit filename="/home/lukas/git_start/snmp/structures.h">
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectId.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectId.h">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectType.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectType.h">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/parser.cpp">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/parser.h">
+			<Option target="snmp"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/parser_mib/structures.h">
 			<Option target="snmp"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/CMakeLists.txt">

@@ -22,6 +22,8 @@ private:
 public:
     DataType();
     void setName(std::string n);
+    std::string getBaseType();
+    int returnSize();
     void setAccess(std::string a);
     void setAccessNum(std::string n);
     void setBaseType(std::string t);
@@ -32,6 +34,7 @@ public:
     void appendSequence(std::string s);
     void printDataType();
     std::string getName();
+    std::string getAccess();
 
 };
 

@@ -49,6 +49,7 @@ public:
     std::vector<ObjectId> divideOidIntoObjects(ObjectId o);
     std::vector<ObjectId*> findChilds(std::vector<ObjectId> objects, std::string name);
     void createOIDFromObjectType();
+    void getBerEncodedLeaf(std::string pathToLeaf, std::string value);
 };
 
 
