@@ -9,6 +9,7 @@ CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o: ../parser_mib/ObjectType.h
 CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o: ../parser_mib/parser.h
 CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o: ../parser_mib/structures.h
 
+CMakeFiles/snmp.dir/main.cpp.o: ../ber_coder/BerCoder.h
 CMakeFiles/snmp.dir/main.cpp.o: ../main.cpp
 CMakeFiles/snmp.dir/main.cpp.o: ../parser_mib/DataType.h
 CMakeFiles/snmp.dir/main.cpp.o: ../parser_mib/ObjectId.h

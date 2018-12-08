@@ -55,6 +55,9 @@ void ObjectType::appendOID(std::string element) {
 std::string ObjectType::getDescription() {
     return this->description;
 }
+void ObjectType::setIsSequenceType() {
+    this->isSequenceType = true;
+}
 void ObjectType::printOT() {
     std::cout<<"Name: "<<name<<std::endl;
     std::cout<<"Syntax: "<<syntax<<std::endl;

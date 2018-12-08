@@ -6,17 +6,33 @@
 
 #IncludeRegexTransform: 
 
-/home/lukas/git_start/snmp/main.cpp
+/home/lukas/git_start/snmp/ber_coder/BerCoder.cpp
+BerCoder.h
+/home/lukas/git_start/snmp/ber_coder/BerCoder.h
+regex
+-
 iostream
+-
+bitset
+-
+math.h
+-
+
+/home/lukas/git_start/snmp/ber_coder/BerCoder.h
+bitset
 -
 string
 -
-fstream
+vector
 -
-regex
+cstdint
 -
-parser_mib/parser.h
+../parser_mib/parser.h
 /home/lukas/git_start/snmp/parser_mib/parser.h
+../parser_mib/ObjectType.h
+/home/lukas/git_start/snmp/parser_mib/ObjectType.h
+../parser_mib/DataType.h
+/home/lukas/git_start/snmp/parser_mib/DataType.h
 
 /home/lukas/git_start/snmp/parser_mib/DataType.h
 string

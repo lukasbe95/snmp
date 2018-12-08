@@ -34,6 +34,7 @@ public:
     std::string getAccess();
     std::string getStatus();
     std::string getDescription();
+    void setIsSequenceType();
     bool getIsSequenceType();
     std::vector<std::string> getOID();
     void printOT();
