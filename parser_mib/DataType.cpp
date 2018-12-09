@@ -36,6 +36,9 @@ void DataType::setAccess(std::string a) {
 void DataType::setAccessNum(std::string n) {
     this->access_number = n;
 }
+std::string DataType::getAccessNum() {
+    return this->access_number;
+}
 void DataType::setBaseType(std::string t) {
     this->base_type = t;
 }
@@ -82,4 +85,25 @@ int DataType::returnSize() {
 }
 std::string DataType::getAccess() {
     return this->access;
+}
+bool DataType::isItInteger(std::string val) {
+    std::string::const_iterator it = val.begin();
+    while (it != val.end() && std::isdigit(*it)) ++it;
+    return !val.empty() && it == val.end();
+}
+bool DataType::checkIfValueIsGood(std::string val) {
+    if(this->isItInteger(val)){
+        int v = std::stoi(val);
+        if(v >= std::stoi(this->min_value) && v <= std::stoi(this->max_value)){
+            return true;
+        }else{
+            return false;
+        }
+    } else {
+        if(val.length() <= std::stoi(this->size)){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

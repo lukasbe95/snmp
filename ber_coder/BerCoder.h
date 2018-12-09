@@ -15,8 +15,9 @@
 
 class BerCoder {
 private:
-    std::vector<int> tag;
-    std::vector<int> length;
+    std::vector<uint8_t> tag;
+    std::vector<uint8_t> length;
+    std::vector<uint8_t> content_field;
     ObjectType obj;
     DataType dt;
     long tag_number;
@@ -25,30 +26,31 @@ private:
     std::string content;
     std::string entered_adress;
     std::string implicit_explicit;
-    DataType entered_datatype;
-    ObjectType entered_objecttype;
     std::vector<std::string> sequence_types;
     std::vector<std::string> sequence_values;
 public:
     void enterData();
-    std::vector<int> createTag();
-    u_int8_t setTagClass(std::string c);
-    u_int8_t setPC();
+    std::vector<uint8_t> createTag();
+    uint8_t setTagClass(std::string c);
+    uint8_t setPC();
     void setTagNumber(std::string access, std::string basetype);
     void setDataType(DataType d);
     void setObjectType(ObjectType o);
-    std::list<int> createExtendedTagNum();
-    std::vector<int> createLength();
-    std::vector<int> createContentBasedOnLength(std::string value);
+    std::list<uint8_t> createExtendedTagNum();
+    std::vector<uint8_t> createLength();
+    std::vector<uint8_t> createContentBasedOnLength(std::string value);
     void setContent(std::string c);
-    uint8_t convertIntToInt8(int number, int bit_vector_size);
     void enterAddress();
     void enterDatatype();
-    void enterValue();
     void enterSequence();
     void enterInteger();
     void enterOctet();
     void enterOID();
+    void encodeOID();
+    void encodeInteger();
+    void encodeOctet();
+    void encodeNull();
+    void printEncoded();
 };
 
 

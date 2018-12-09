@@ -26,6 +26,7 @@ public:
     int returnSize();
     void setAccess(std::string a);
     void setAccessNum(std::string n);
+    std::string getAccessNum();
     void setBaseType(std::string t);
     void setRange(std::string min_v,std::string max_v);
     void setSize(std::string s);
@@ -35,6 +36,8 @@ public:
     void printDataType();
     std::string getName();
     std::string getAccess();
+    bool isItInteger(std::string val);
+    bool checkIfValueIsGood(std::string val);
 
 };
 

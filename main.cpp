@@ -3,7 +3,7 @@
 #include <fstream>
 #include <regex>
 #include <bitset>
-#include <math.h>
+#include <cmath>
 #include "parser_mib/parser.h"
 #include "ber_coder/BerCoder.h"
 using  namespace std;
@@ -29,7 +29,7 @@ int main() {
 //    delete(p);
 //    Parser part end
     BerCoder b;
-//    b.enterData();
-    b.enterSequence();
+    b.enterData();
+    b.printEncoded();
     return 0;
 }
