@@ -107,3 +107,13 @@ bool DataType::checkIfValueIsGood(std::string val) {
         }
     }
 }
+void DataType::clear() {
+    this->name = "";
+    this->access = "";
+    this->access_number = "";
+    this->base_type = "";
+    this->min_value = "";
+    this->max_value = "";
+    this->size = "";
+    this->sequence.clear();
+}

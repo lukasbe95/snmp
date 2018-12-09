@@ -5,18 +5,20 @@
 #include "BerCoder.h"
 #include <regex>
 #include <iostream>
+#include <vector>
 #include <bitset>
 #include <math.h>
+#include "../parser_mib/ObjectType.h"
 
 uint8_t BerCoder::setTagClass(std::string c) {
     if (c.find("APPLICATION")<10000){
         return 64;
     } else if (c.find("PRIVATE")<10000){
         return 192;
-    } else if (c.find("CONTEXT-SPECIFIC")<10000){
-        return 128;
-    } else {
+    } else if (c.find("UNIVERSAL")<10000){
         return 0;
+    } else {
+        return 128;
     }
 }
 uint8_t BerCoder::setPC() {
@@ -120,17 +122,14 @@ std::vector<uint8_t> BerCoder::createContentBasedOnLength(std::string value) {
     }
     return local_content;
 }
-void BerCoder::setContent(std::string c) {
-    this->content = std::move(c);
-}
 void BerCoder::enterData() {
     std::string yes_no;
-    std::cout<<"Do you want to enter adress (y/n)"<<std::endl;
-    std::cin>>yes_no;
-    //adress
-    if(yes_no == "Y" || yes_no == "y"){
-        this->enterAddress();
-    }
+//    std::cout<<"Do you want to enter adress (y/n)"<<std::endl;
+//    std::cin>>yes_no;
+//    //adress
+//    if(yes_no == "Y" || yes_no == "y"){
+//        this->enterAddress();
+//    }
     std::cout<<"Please enter value:"<<std::endl;
     yes_no = "";
     std::cin>>yes_no;
@@ -141,9 +140,10 @@ void BerCoder::enterData() {
     if(yes_no == "Y" || yes_no == "y"){
         this->enterDatatype();
     }
-
 }
 void BerCoder::enterDatatype() {
+    this->obj.clear();
+    this->dt.clear();
     std::string temp_input;
     std::cout<<"Enter basetype. i -> INTEGER, n -> NULL, o -> OCTET STRING, oid -> OID, s -> SEQUENCE"<<std::endl;
     std::cin>>temp_input;
@@ -165,6 +165,7 @@ void BerCoder::enterDatatype() {
     } else if (temp_input == "s"){
         this->dt.setBaseType("");
         this->enterSequence();
+        this->encodeSequence();
     }
 }
 void BerCoder::enterInteger() {
@@ -246,16 +247,19 @@ void BerCoder::enterSequence() {
     std::cin>>seq_len;
     std::cout<<"Enter elements element type and then element value:"<<std::endl;
     for(int i = 0;i < seq_len;i++){
-        std::cout<<"Enter type: ";
-        std::cin>>temp_input;
-        std::cout<<std::endl;
-        this->sequence_types.push_back(temp_input);
-        temp_input = "";
-        std::cout<<"Enter value: ";
-        std::cin>>temp_input;
-        this->sequence_values.push_back(temp_input);
-        std::cout<<std::endl;
-        temp_input = "";
+        this->enterData();
+        for(uint8_t x : this->tag){
+            this->sequence_content.push_back(x);
+        }
+        for(uint8_t l : this->length){
+            this->sequence_content.push_back(l);
+        }
+        for(uint8_t c : this->content_field){
+            this->sequence_content.push_back(c);
+        }
+        this->tag.clear();
+        this->length.clear();
+        this->content_field.clear();
     }
 }
 void BerCoder::encodeOID() {
@@ -347,5 +351,14 @@ void BerCoder::printEncoded() {
     }
     for(auto f: this->content_field){
         std::cout<<(int)f<<std::endl;
+    }
+}
+void BerCoder::encodeSequence() {
+    this->obj.setIsSequenceType();
+    this->setTagNumber("","SEQUENCE");
+    this->createTag();
+    this->length.push_back((uint8_t)this->sequence_content.size());
+    for(uint8_t x : this->sequence_content){
+        this->content_field.push_back(x);
     }
 }

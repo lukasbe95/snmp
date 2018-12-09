@@ -202,3 +202,12 @@ bool ObjectType::isItInteger(std::string val) {
 std::string ObjectType::getType() {
     return this->type;
 }
+void ObjectType::clear() {
+    this->name ="";
+    this->syntax = "";
+    this->access = "";
+    this->status = "";
+    this->isSequenceType = false;
+    this->syntax_min = 0;
+    this->syntax_max = 0;
+}

@@ -23,11 +23,15 @@ private:
     long tag_number;
     std::string value;
     bool eoc = false;
-    std::string content;
     std::string entered_adress;
     std::string implicit_explicit;
-    std::vector<std::string> sequence_types;
-    std::vector<std::string> sequence_values;
+//    std::vector<std::string> sequence_types;
+//    std::vector<std::string> sequence_values;
+//    std::vector<DataType> datatypes_vector;
+//    std::vector<ObjectId> objecttypes_vector;
+    std::vector<uint8_t> sequence_content;
+
+
 public:
     void enterData();
     std::vector<uint8_t> createTag();
@@ -39,7 +43,6 @@ public:
     std::list<uint8_t> createExtendedTagNum();
     std::vector<uint8_t> createLength();
     std::vector<uint8_t> createContentBasedOnLength(std::string value);
-    void setContent(std::string c);
     void enterAddress();
     void enterDatatype();
     void enterSequence();
@@ -50,6 +53,7 @@ public:
     void encodeInteger();
     void encodeOctet();
     void encodeNull();
+    void encodeSequence();
     void printEncoded();
 };
 

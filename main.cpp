@@ -26,10 +26,10 @@ int main() {
 //    ObjectId* t = p->returnNode("1.3.6.1.2.1.3.atEntry.1");
 //    t->printOID();
 //    p->getBerEncodedLeaf("1.3.6.1.2.1.4.ipAddrEntry.3","DUPA");
-//    delete(p);
 //    Parser part end
     BerCoder b;
     b.enterData();
     b.printEncoded();
+//    delete(p);
     return 0;
 }

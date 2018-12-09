@@ -47,6 +47,7 @@ public:
     void preprocessSyntax(std::vector <DataType> &externalTypes);
     bool checkIfValueIsPermitted(std::vector <DataType> &externalTypes, std::string value);
     bool isItInteger(std::string val);
+    void clear();
 };
 
 

@@ -38,7 +38,7 @@ public:
     std::string getAccess();
     bool isItInteger(std::string val);
     bool checkIfValueIsGood(std::string val);
-
+    void clear();
 };
 
 
