@@ -12,6 +12,9 @@
 #include "../parser_mib/parser.h"
 #include "../parser_mib/ObjectType.h"
 #include "../parser_mib/DataType.h"
+#include "SimpleType.h"
+#include "ConstructedType.h"
+#include "Type.h"
 
 class BerCoder {
 private:
@@ -33,7 +36,8 @@ private:
 
 
 public:
-    void enterData();
+    BerCoder();
+    std::vector<uint8_t> enterData();
     std::vector<uint8_t> createTag();
     uint8_t setTagClass(std::string c);
     uint8_t setPC();
@@ -44,8 +48,8 @@ public:
     std::vector<uint8_t> createLength();
     std::vector<uint8_t> createContentBasedOnLength(std::string value);
     void enterAddress();
-    void enterDatatype();
-    void enterSequence();
+    std::vector<uint8_t> enterDatatype();
+    std::vector<uint8_t> enterSequence();
     void enterInteger();
     void enterOctet();
     void enterOID();

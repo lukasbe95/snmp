@@ -9,7 +9,12 @@
 #include <bitset>
 #include <math.h>
 #include "../parser_mib/ObjectType.h"
+#include "SimpleType.h"
+#include "ConstructedType.h"
 
+BerCoder::BerCoder() {
+    std::cout<<std::endl;
+}
 uint8_t BerCoder::setTagClass(std::string c) {
     if (c.find("APPLICATION")<10000){
         return 64;
@@ -122,14 +127,8 @@ std::vector<uint8_t> BerCoder::createContentBasedOnLength(std::string value) {
     }
     return local_content;
 }
-void BerCoder::enterData() {
+std::vector<uint8_t> BerCoder::enterData() {
     std::string yes_no;
-//    std::cout<<"Do you want to enter adress (y/n)"<<std::endl;
-//    std::cin>>yes_no;
-//    //adress
-//    if(yes_no == "Y" || yes_no == "y"){
-//        this->enterAddress();
-//    }
     std::cout<<"Please enter value:"<<std::endl;
     yes_no = "";
     std::cin>>yes_no;
@@ -138,10 +137,10 @@ void BerCoder::enterData() {
     std::cout<<"Do you want to define own datatype(y/n)"<<std::endl;
     std::cin>>yes_no;
     if(yes_no == "Y" || yes_no == "y"){
-        this->enterDatatype();
+        return this->enterDatatype();
     }
 }
-void BerCoder::enterDatatype() {
+std::vector<uint8_t> BerCoder::enterDatatype() {
     this->obj.clear();
     this->dt.clear();
     std::string temp_input;
@@ -151,21 +150,29 @@ void BerCoder::enterDatatype() {
         this->dt.setBaseType("INTEGER");
         this->enterInteger();
         this->encodeInteger();
+        SimpleType child(this->tag,this->length,this->content_field);
+        return child.returnType();
     } else if (temp_input == "n"){
         this->dt.setBaseType("NULL");
         this->encodeNull();
+        this->tag.push_back(5);
+        this->tag.push_back(0);
+        return this->tag;
     } else if (temp_input == "o"){
         this->dt.setBaseType("OCTET STRING");
         this->enterOctet();
         this->encodeOctet();
+        SimpleType child(this->tag,this->length,this->content_field);
+        return child.returnType();
     } else if (temp_input == "oid"){
         this->dt.setBaseType("OBJECT IDENTIFIER");
         this->enterOID();
         this->encodeOID();
+        SimpleType child(this->tag,this->length,this->content_field);
+        return child.returnType();
     } else if (temp_input == "s"){
         this->dt.setBaseType("");
-        this->enterSequence();
-        this->encodeSequence();
+        return this->enterSequence();
     }
 }
 void BerCoder::enterInteger() {
@@ -193,7 +200,7 @@ void BerCoder::enterInteger() {
     temp_input = "";
     std::cout<<"Enter min/max value (s to skip to size):"<<std::endl;
     std::cin>>temp_input;
-    if(temp_input.find("s") < 1000){
+    if(temp_input.find('s') < 1000){
         temp_input = "";
         std::cin>>temp_input;
         this->dt.setSize(temp_input);
@@ -236,7 +243,7 @@ void BerCoder::enterOID() {
     }
     this->obj.setOID(temp_oid);
 }
-void BerCoder::enterSequence() {
+std::vector<uint8_t> BerCoder::enterSequence() {
     std::string temp_input;
     std::cout<<"Enter sequence name:"<<std::endl;
     std::cin>>temp_input;
@@ -246,21 +253,20 @@ void BerCoder::enterSequence() {
     std::cout<<"Enter number of elements in sequence:"<<std::endl;
     std::cin>>seq_len;
     std::cout<<"Enter elements element type and then element value:"<<std::endl;
+    std::vector<uint8_t> temp_seq;
     for(int i = 0;i < seq_len;i++){
-        this->enterData();
-        for(uint8_t x : this->tag){
-            this->sequence_content.push_back(x);
-        }
-        for(uint8_t l : this->length){
-            this->sequence_content.push_back(l);
-        }
-        for(uint8_t c : this->content_field){
-            this->sequence_content.push_back(c);
-        }
+        std::vector<uint8_t> temp = this->enterData();
+        temp_seq.insert(std::end(temp_seq),std::begin(temp),std::end(temp));
         this->tag.clear();
         this->length.clear();
         this->content_field.clear();
     }
+    this->setTagNumber("","SEQUENCE");
+    this->tag = this->createTag();
+    std::cout<<"sequence end"<<std::endl;
+    this->length.push_back((uint8_t)temp_seq.size());
+    SimpleType child(this->tag,this->length,temp_seq);
+    return child.returnType();
 }
 void BerCoder::encodeOID() {
     // create tag
@@ -353,12 +359,12 @@ void BerCoder::printEncoded() {
         std::cout<<(int)f<<std::endl;
     }
 }
-void BerCoder::encodeSequence() {
-    this->obj.setIsSequenceType();
-    this->setTagNumber("","SEQUENCE");
-    this->createTag();
-    this->length.push_back((uint8_t)this->sequence_content.size());
-    for(uint8_t x : this->sequence_content){
-        this->content_field.push_back(x);
-    }
-}
+//void BerCoder::encodeSequence() {
+//    this->obj.setIsSequenceType();
+//    this->setTagNumber("","SEQUENCE");
+//    this->createTag();
+//    this->length.push_back((uint8_t)this->sequence_content.size());
+//    for(uint8_t x : this->sequence_content){
+//        this->content_field.push_back(x);
+//    }
+//}

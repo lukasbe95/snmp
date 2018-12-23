@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.o"
   "CMakeFiles/snmp.dir/parser_mib/DataType.cpp.o"
   "CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o"
+  "CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o"
+  "CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.o"
   "snmp.pdb"
   "snmp"
 )

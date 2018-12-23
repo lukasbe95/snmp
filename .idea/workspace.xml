@@ -12,17 +12,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a94ef5ec-6611-4448-a34c-b229fdd7dbed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ber_coder/ConstructedType.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ber_coder/ConstructedType.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ber_coder/SimpleType.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ber_coder/SimpleType.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ber_coder/Type.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ber_coder/BerCoder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ber_coder/BerCoder.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ber_coder/BerCoder.h" beforeDir="false" afterPath="$PROJECT_DIR$/ber_coder/BerCoder.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/cmake_clean.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/link.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/snmp.dir/progress.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/snmp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/snmp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/snmp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/snmp.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser_mib/DataType.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/parser_mib/DataType.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser_mib/DataType.h" beforeDir="false" afterPath="$PROJECT_DIR$/parser_mib/DataType.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser_mib/ObjectType.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/parser_mib/ObjectType.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser_mib/ObjectType.h" beforeDir="false" afterPath="$PROJECT_DIR$/parser_mib/ObjectType.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,50 +63,53 @@
     <session id="-1142422234">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="25" />
+          <entry key="project.closed" value="29" />
           <entry key="project.open.time.104" value="1" />
           <entry key="project.open.time.115" value="1" />
+          <entry key="project.open.time.14" value="1" />
+          <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.42" value="2" />
           <entry key="project.open.time.43" value="4" />
           <entry key="project.open.time.44" value="2" />
           <entry key="project.open.time.45" value="2" />
-          <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.46" value="2" />
           <entry key="project.open.time.47" value="3" />
-          <entry key="project.open.time.48" value="3" />
+          <entry key="project.open.time.48" value="4" />
           <entry key="project.open.time.49" value="1" />
-          <entry key="project.opened" value="27" />
+          <entry key="project.opened" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="33" />
-          <entry key="h" value="35" />
+          <entry key="cpp" value="35" />
+          <entry key="h" value="38" />
           <entry key="snmp (disassembly)" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Disassembly" value="13" />
-          <entry key="ObjectiveC" value="68" />
+          <entry key="ObjectiveC" value="73" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="23782" />
-          <entry key="h" value="4490" />
+          <entry key="cpp" value="24958" />
+          <entry key="h" value="4806" />
           <entry key="mm" value="12" />
-          <entry key="txt" value="594" />
+          <entry key="txt" value="669" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="28284" />
-          <entry key="PLAIN_TEXT" value="594" />
+          <entry key="ObjectiveC" value="29776" />
+          <entry key="PLAIN_TEXT" value="669" />
         </counts>
       </usages-collector>
     </session>
@@ -103,8 +119,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state relative-caret-position="450">
+              <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -113,52 +129,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_mib/ObjectType.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-              <folding>
-                <element signature="e#93#110#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_mib/DataType.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_mib/DataType.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_mib/ObjectType.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="211" column="25" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
-              <folding>
-                <element signature="e#40#63#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ber_coder/BerCoder.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-222">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="288">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
               <folding>
                 <element signature="e#88#105#0" expanded="true" />
               </folding>
@@ -169,20 +143,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ber_coder/BerCoder.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="339" column="1" lean-forward="true" selection-start-line="339" selection-start-column="1" selection-end-line="339" selection-end-column="1" />
+            <state relative-caret-position="81">
+              <caret line="267" column="54" lean-forward="true" selection-start-line="267" selection-start-column="54" selection-end-line="267" selection-end-column="54" />
               <folding>
                 <element signature="e#40#61#0" expanded="true" />
-                <element signature="e#2635#3320#0" />
-                <element signature="e#4844#5917#0" />
-                <element signature="e#5918#6362#0" />
-                <element signature="e#6363#6420#0" />
-                <element signature="e#6421#6954#0" />
-                <element signature="e#7744#9039#0" />
-                <element signature="e#9040#9728#0" />
-                <element signature="e#9751#9788#0" />
-                <element signature="e#9729#9765#0" />
-                <element signature="e#9915#9953#0" />
               </folding>
             </state>
           </provider>
@@ -192,10 +156,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setRa</find>
-      <find>rege</find>
-      <find>egpNeighEntry</find>
-      <find>Name: egp</find>
       <find>cout</find>
       <find>create</find>
       <find>at</find>
@@ -220,8 +180,12 @@
       <find>content</find>
       <find>createLength</find>
       <find>setC</find>
-      <find>enterSe</find>
       <find>setTagNumber</find>
+      <find>enterDat</find>
+      <find>enterData(</find>
+      <find>enterSe</find>
+      <find>encodeNull</find>
+      <find>createTa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -242,13 +206,18 @@
         <option value="$PROJECT_DIR$/parser.cpp" />
         <option value="$PROJECT_DIR$/parser_mib/parser.cpp" />
         <option value="$PROJECT_DIR$/parser_mib/parser.h" />
-        <option value="$PROJECT_DIR$/ber_coder/BerCoder.h" />
         <option value="$PROJECT_DIR$/parser_mib/DataType.h" />
         <option value="$PROJECT_DIR$/parser_mib/DataType.cpp" />
         <option value="$PROJECT_DIR$/parser_mib/ObjectType.h" />
         <option value="$PROJECT_DIR$/parser_mib/ObjectType.cpp" />
-        <option value="$PROJECT_DIR$/ber_coder/BerCoder.cpp" />
+        <option value="$PROJECT_DIR$/ber_coder/SimpleType.h" />
+        <option value="$PROJECT_DIR$/ber_coder/ConstructedType.h" />
+        <option value="$PROJECT_DIR$/ber_coder/SimpleType.cpp" />
+        <option value="$PROJECT_DIR$/ber_coder/Type.h" />
+        <option value="$PROJECT_DIR$/ber_coder/BerCoder.h" />
+        <option value="$PROJECT_DIR$/ber_coder/ConstructedType.cpp" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/ber_coder/BerCoder.cpp" />
       </list>
     </option>
   </component>
@@ -369,7 +338,12 @@
       <workItem from="1543853575443" duration="7577000" />
       <workItem from="1544267306872" duration="3497000" />
       <workItem from="1544272712471" duration="18218000" />
-      <workItem from="1544346783700" duration="10608000" />
+      <workItem from="1544346783700" duration="11494000" />
+      <workItem from="1544525815489" duration="2410000" />
+      <workItem from="1544955337453" duration="808000" />
+      <workItem from="1545570067778" duration="10069000" />
+      <workItem from="1545585847937" duration="21000" />
+      <workItem from="1545592425866" duration="624000" />
     </task>
     <task id="LOCAL-00001" summary="Parser Object-Type functions nearly written.">
       <created>1540914027170</created>
@@ -462,11 +436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544351163510</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Sequence encoded. There is a bug in this method that need to be fixed.">
+      <created>1544357685002</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1544357685002</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218109000" />
+    <option name="totallyTimeSpent" value="232927000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -481,22 +462,22 @@
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21069433" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22825219" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.71941274" />
+      <window_info active="true" anchor="bottom" id="Debug" order="2" visible="true" weight="0.3964111" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.081566066" />
       <window_info anchor="bottom" id="Database Changes" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49960095" visible="true" weight="0.34747145" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49960095" weight="0.2137031" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.1990212" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50039905" side_tool="true" weight="0.34747145" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32952693" />
       <window_info anchor="bottom" id="CMake" order="11" weight="0.32952693" />
-      <window_info active="true" anchor="bottom" x="616" y="57" width="750" height="711" id="Run" order="12" type="WINDOWED" visible="true" weight="0.14355628" />
+      <window_info anchor="bottom" x="67" y="57" width="1299" height="711" id="Run" order="12" type="WINDOWED" weight="0.14355628" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -572,7 +553,19 @@
     <MESSAGE value="Data enter added. Need to be tested." />
     <MESSAGE value="OID encoded." />
     <MESSAGE value="Integer, octet and null encoding added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Integer, octet and null encoding added." />
+    <MESSAGE value="Sequence encoded. There is a bug in this method that need to be fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sequence encoded. There is a bug in this method that need to be fixed." />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/ber_coder/BerCoder.cpp</url>
+          <line>263</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -634,36 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="419" column="30" selection-start-line="419" selection-start-column="30" selection-end-line="419" selection-end-column="30" />
-          <folding>
-            <element signature="e#40#59#0" expanded="true" />
-            <element signature="e#255#643#0" />
-            <element signature="e#644#766#0" />
-            <element signature="e#767#1266#0" />
-            <element signature="e#1267#1926#0" />
-            <element signature="e#1927#2631#0" />
-            <element signature="e#2632#5113#0" />
-            <element signature="e#5114#5184#0" />
-            <element signature="e#5185#5260#0" />
-            <element signature="e#5261#5888#0" />
-            <element signature="e#5889#8328#0" />
-            <element signature="e#8329#8399#0" />
-            <element signature="e#8400#8881#0" />
-            <element signature="e#8882#9029#0" />
-            <element signature="e#9030#9172#0" />
-            <element signature="e#9173#9318#0" />
-            <element signature="e#9319#9387#0" />
-            <element signature="e#9388#9456#0" />
-            <element signature="e#9457#9530#0" />
-            <element signature="e#9531#9603#0" />
-            <element signature="e#9604#9678#0" />
-            <element signature="e#9679#9754#0" />
-            <element signature="e#9755#10773#0" />
-            <element signature="e#10774#11483#0" />
-            <element signature="e#11484#11963#0" />
-            <element signature="e#11964#12832#0" />
-            <element signature="e#12833#13540#0" />
-            <element signature="e#13541#13735#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -678,82 +641,110 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-135">
           <caret line="20" column="4" lean-forward="true" selection-start-line="20" selection-start-column="4" selection-end-line="22" />
-          <folding>
-            <element signature="e#85#102#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/parser_mib/DataType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ber_coder/BerCoder.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-222">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="e#88#105#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser_mib/ObjectType.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="735">
           <caret line="49" column="17" selection-start-line="49" selection-start-column="17" selection-end-line="49" selection-end-column="17" />
-          <folding>
-            <element signature="e#93#110#0" expanded="true" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/parser_mib/DataType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser_mib/DataType.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="1755">
           <caret line="117" column="27" selection-start-line="117" selection-start-column="27" selection-end-line="117" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/parser_mib/ObjectType.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
+        <state relative-caret-position="318">
           <caret line="211" column="25" selection-start-line="211" selection-start-column="25" selection-end-line="211" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ber_coder/SimpleType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="21" selection-start-line="19" selection-start-column="4" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <element signature="e#39#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ber_coder/Type.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ber_coder/ConstructedType.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+          <folding>
+            <element signature="e#39#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ber_coder/SimpleType.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="31" selection-end-column="5" />
           <folding>
             <element signature="e#40#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ber_coder/ConstructedType.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#68#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="22" column="8" lean-forward="true" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+        <state relative-caret-position="450">
+          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ber_coder/BerCoder.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#88#105#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ber_coder/BerCoder.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="339" column="1" lean-forward="true" selection-start-line="339" selection-start-column="1" selection-end-line="339" selection-end-column="1" />
+        <state relative-caret-position="81">
+          <caret line="267" column="54" lean-forward="true" selection-start-line="267" selection-start-column="54" selection-end-line="267" selection-end-column="54" />
           <folding>
             <element signature="e#40#61#0" expanded="true" />
-            <element signature="e#2635#3320#0" />
-            <element signature="e#4844#5917#0" />
-            <element signature="e#5918#6362#0" />
-            <element signature="e#6363#6420#0" />
-            <element signature="e#6421#6954#0" />
-            <element signature="e#7744#9039#0" />
-            <element signature="e#9040#9728#0" />
-            <element signature="e#9751#9788#0" />
-            <element signature="e#9729#9765#0" />
-            <element signature="e#9915#9953#0" />
           </folding>
         </state>
       </provider>

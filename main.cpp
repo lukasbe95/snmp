@@ -27,9 +27,12 @@ int main() {
 //    t->printOID();
 //    p->getBerEncodedLeaf("1.3.6.1.2.1.4.ipAddrEntry.3","DUPA");
 //    Parser part end
-    BerCoder b;
-    b.enterData();
-    b.printEncoded();
+    BerCoder* b = new BerCoder();
+    std::vector<uint8_t> x = b->enterData();
+    for (uint8_t element : x ){
+        std::cout<<(int)element<<" ,";
+    }
+    std::cout<<std::endl;
 //    delete(p);
     return 0;
 }

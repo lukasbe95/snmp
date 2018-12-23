@@ -150,6 +150,60 @@ ber_coder/BerCoder.cpp.s:
 	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.s
 .PHONY : ber_coder/BerCoder.cpp.s
 
+ber_coder/ConstructedType.o: ber_coder/ConstructedType.cpp.o
+
+.PHONY : ber_coder/ConstructedType.o
+
+# target to build an object file
+ber_coder/ConstructedType.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.o
+.PHONY : ber_coder/ConstructedType.cpp.o
+
+ber_coder/ConstructedType.i: ber_coder/ConstructedType.cpp.i
+
+.PHONY : ber_coder/ConstructedType.i
+
+# target to preprocess a source file
+ber_coder/ConstructedType.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.i
+.PHONY : ber_coder/ConstructedType.cpp.i
+
+ber_coder/ConstructedType.s: ber_coder/ConstructedType.cpp.s
+
+.PHONY : ber_coder/ConstructedType.s
+
+# target to generate assembly for a file
+ber_coder/ConstructedType.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.s
+.PHONY : ber_coder/ConstructedType.cpp.s
+
+ber_coder/SimpleType.o: ber_coder/SimpleType.cpp.o
+
+.PHONY : ber_coder/SimpleType.o
+
+# target to build an object file
+ber_coder/SimpleType.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o
+.PHONY : ber_coder/SimpleType.cpp.o
+
+ber_coder/SimpleType.i: ber_coder/SimpleType.cpp.i
+
+.PHONY : ber_coder/SimpleType.i
+
+# target to preprocess a source file
+ber_coder/SimpleType.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.i
+.PHONY : ber_coder/SimpleType.cpp.i
+
+ber_coder/SimpleType.s: ber_coder/SimpleType.cpp.s
+
+.PHONY : ber_coder/SimpleType.s
+
+# target to generate assembly for a file
+ber_coder/SimpleType.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.s
+.PHONY : ber_coder/SimpleType.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -297,6 +351,12 @@ help:
 	@echo "... ber_coder/BerCoder.o"
 	@echo "... ber_coder/BerCoder.i"
 	@echo "... ber_coder/BerCoder.s"
+	@echo "... ber_coder/ConstructedType.o"
+	@echo "... ber_coder/ConstructedType.i"
+	@echo "... ber_coder/ConstructedType.s"
+	@echo "... ber_coder/SimpleType.o"
+	@echo "... ber_coder/SimpleType.i"
+	@echo "... ber_coder/SimpleType.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
