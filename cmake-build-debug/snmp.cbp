@@ -5,7 +5,7 @@
 		<Option title="snmp"/>
 		<Option makefile_is_custom="1"/>
 		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option virtualFolders="CMake Files\;CMake Files\tests\;CMake Files\tests\lib\;CMake Files\tests\lib\googletest\;CMake Files\tests\lib\googletest\googlemock\;CMake Files\tests\lib\googletest\googlemock\cmake\;CMake Files\tests\lib\googletest\googletest\;CMake Files\tests\lib\googletest\googletest\cmake\;"/>
 		<Build>
 			<Target title="all">
 				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
@@ -17,11 +17,95 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="rebuild_cache">
+			<Target title="install/strip">
 				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/strip"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install/local">
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 install/local"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="install">
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 install"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="list_install_components">
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 list_install_components"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="snmp_test">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/snmp_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 snmp_test"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="snmp_test/fast">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/snmp_test" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 snmp_test/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
@@ -37,13 +121,17 @@
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="snmp">
-				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/snmp" prefix_auto="0" extension_auto="0"/>
+			<Target title="snmp_run">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/snmp_run" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -54,19 +142,23 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 snmp"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 snmp_run"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="snmp/fast">
-				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/snmp" prefix_auto="0" extension_auto="0"/>
+			<Target title="snmp_run/fast">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/snmp_run" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -77,66 +169,365 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 snmp/fast"/>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 snmp_run/fast"/>
 					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock_main/fast">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgmock_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gmock/fast">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgmockd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest_main/fast">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgtest_maind.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="gtest/fast">
+				<Option output="/home/lukas/git_start/snmp/cmake-build-debug/lib/libgtestd.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/include"/>
+					<Add directory="/home/lukas/git_start/snmp/tests/lib/googletest/googletest"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/lukas/git_start/snmp/cmake-build-debug/tests/lib/googletest/googlemock/gtest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/BerCoder.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/BerCoder.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/ConstructedType.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/ConstructedType.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/SimpleType.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/SimpleType.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/ber_coder/Type.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ber_decoder/BerEncoder.cpp">
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ber_decoder/BerEncoder.h">
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ber_decoder/Decoded.cpp">
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/ber_decoder/Decoded.h">
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/main.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/DataType.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/DataType.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectId.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectId.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectType.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/ObjectType.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/parser.cpp">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/parser.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/parser_mib/structures.h">
-			<Option target="snmp"/>
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/ber_decoder_tests/decoder.cpp">
+			<Option target="snmp_test"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/ber_decoder_tests/main_test.cpp">
+			<Option target="snmp_test"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/src/gmock-all.cc">
+			<Option target="gmock"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/src/gmock_main.cc">
+			<Option target="gmock_main"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/src/gtest-all.cc">
+			<Option target="gtest"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/src/gtest_main.cc">
+			<Option target="gtest_main"/>
 		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googlemock\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/cmake/gmock.pc.in">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googlemock/cmake/gmock_main.pc.in">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googlemock\cmake\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googletest\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/cmake/Config.cmake.in">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/cmake/gtest.pc.in">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/cmake/gtest_main.pc.in">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googletest\cmake\"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/tests/lib/googletest/googletest/cmake/internal_utils.cmake">
+			<Option virtualFolder="CMake Files\tests\lib\googletest\googletest\cmake\"/>
 		</Unit>
 	</Project>
 </CodeBlocks_project_file>

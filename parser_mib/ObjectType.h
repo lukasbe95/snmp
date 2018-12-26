@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "DataType.h"
+
 class ObjectType {
 private:
     std::string name;
@@ -20,6 +21,7 @@ private:
     std::string type;
     bool isSequenceType;
     std::vector<std::string> oid;
+
 public:
     ObjectType();
     void setName(std::string s);

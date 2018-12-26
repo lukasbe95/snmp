@@ -56,16 +56,51 @@ CMAKE_BINARY_DIR = /home/lukas/git_start/snmp/cmake-build-debug
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +112,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/home/lukas/Pobrane/clion-2018.2/bin/cmake/linux/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,17 +157,82 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named snmp
+# Target rules for targets named snmp_test
 
 # Build rule for target.
-snmp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 snmp
-.PHONY : snmp
+snmp_test: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 snmp_test
+.PHONY : snmp_test
 
 # fast build rule for target.
-snmp/fast:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/build
-.PHONY : snmp/fast
+snmp_test/fast:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/build
+.PHONY : snmp_test/fast
+
+#=============================================================================
+# Target rules for targets named snmp_run
+
+# Build rule for target.
+snmp_run: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 snmp_run
+.PHONY : snmp_run
+
+# fast build rule for target.
+snmp_run/fast:
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/build
+.PHONY : snmp_run/fast
+
+#=============================================================================
+# Target rules for targets named gmock_main
+
+# Build rule for target.
+gmock_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock_main
+.PHONY : gmock_main
+
+# fast build rule for target.
+gmock_main/fast:
+	$(MAKE) -f tests/lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make tests/lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build
+.PHONY : gmock_main/fast
+
+#=============================================================================
+# Target rules for targets named gmock
+
+# Build rule for target.
+gmock: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gmock
+.PHONY : gmock
+
+# fast build rule for target.
+gmock/fast:
+	$(MAKE) -f tests/lib/googletest/googlemock/CMakeFiles/gmock.dir/build.make tests/lib/googletest/googlemock/CMakeFiles/gmock.dir/build
+.PHONY : gmock/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f tests/lib/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build.make tests/lib/googletest/googlemock/gtest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f tests/lib/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build.make tests/lib/googletest/googlemock/gtest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
 
 ber_coder/BerCoder.o: ber_coder/BerCoder.cpp.o
 
@@ -129,7 +240,8 @@ ber_coder/BerCoder.o: ber_coder/BerCoder.cpp.o
 
 # target to build an object file
 ber_coder/BerCoder.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/BerCoder.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/BerCoder.cpp.o
 .PHONY : ber_coder/BerCoder.cpp.o
 
 ber_coder/BerCoder.i: ber_coder/BerCoder.cpp.i
@@ -138,7 +250,8 @@ ber_coder/BerCoder.i: ber_coder/BerCoder.cpp.i
 
 # target to preprocess a source file
 ber_coder/BerCoder.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/BerCoder.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/BerCoder.cpp.i
 .PHONY : ber_coder/BerCoder.cpp.i
 
 ber_coder/BerCoder.s: ber_coder/BerCoder.cpp.s
@@ -147,7 +260,8 @@ ber_coder/BerCoder.s: ber_coder/BerCoder.cpp.s
 
 # target to generate assembly for a file
 ber_coder/BerCoder.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/BerCoder.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/BerCoder.cpp.s
 .PHONY : ber_coder/BerCoder.cpp.s
 
 ber_coder/ConstructedType.o: ber_coder/ConstructedType.cpp.o
@@ -156,7 +270,8 @@ ber_coder/ConstructedType.o: ber_coder/ConstructedType.cpp.o
 
 # target to build an object file
 ber_coder/ConstructedType.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/ConstructedType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/ConstructedType.cpp.o
 .PHONY : ber_coder/ConstructedType.cpp.o
 
 ber_coder/ConstructedType.i: ber_coder/ConstructedType.cpp.i
@@ -165,7 +280,8 @@ ber_coder/ConstructedType.i: ber_coder/ConstructedType.cpp.i
 
 # target to preprocess a source file
 ber_coder/ConstructedType.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/ConstructedType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/ConstructedType.cpp.i
 .PHONY : ber_coder/ConstructedType.cpp.i
 
 ber_coder/ConstructedType.s: ber_coder/ConstructedType.cpp.s
@@ -174,7 +290,8 @@ ber_coder/ConstructedType.s: ber_coder/ConstructedType.cpp.s
 
 # target to generate assembly for a file
 ber_coder/ConstructedType.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/ConstructedType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/ConstructedType.cpp.s
 .PHONY : ber_coder/ConstructedType.cpp.s
 
 ber_coder/SimpleType.o: ber_coder/SimpleType.cpp.o
@@ -183,7 +300,8 @@ ber_coder/SimpleType.o: ber_coder/SimpleType.cpp.o
 
 # target to build an object file
 ber_coder/SimpleType.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/SimpleType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/SimpleType.cpp.o
 .PHONY : ber_coder/SimpleType.cpp.o
 
 ber_coder/SimpleType.i: ber_coder/SimpleType.cpp.i
@@ -192,7 +310,8 @@ ber_coder/SimpleType.i: ber_coder/SimpleType.cpp.i
 
 # target to preprocess a source file
 ber_coder/SimpleType.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/SimpleType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/SimpleType.cpp.i
 .PHONY : ber_coder/SimpleType.cpp.i
 
 ber_coder/SimpleType.s: ber_coder/SimpleType.cpp.s
@@ -201,8 +320,69 @@ ber_coder/SimpleType.s: ber_coder/SimpleType.cpp.s
 
 # target to generate assembly for a file
 ber_coder/SimpleType.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_coder/SimpleType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_coder/SimpleType.cpp.s
 .PHONY : ber_coder/SimpleType.cpp.s
+
+ber_decoder/BerEncoder.o: ber_decoder/BerEncoder.cpp.o
+
+.PHONY : ber_decoder/BerEncoder.o
+
+# target to build an object file
+ber_decoder/BerEncoder.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_decoder/BerEncoder.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_decoder/BerEncoder.cpp.o
+.PHONY : ber_decoder/BerEncoder.cpp.o
+
+ber_decoder/BerEncoder.i: ber_decoder/BerEncoder.cpp.i
+
+.PHONY : ber_decoder/BerEncoder.i
+
+# target to preprocess a source file
+ber_decoder/BerEncoder.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_decoder/BerEncoder.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_decoder/BerEncoder.cpp.i
+.PHONY : ber_decoder/BerEncoder.cpp.i
+
+ber_decoder/BerEncoder.s: ber_decoder/BerEncoder.cpp.s
+
+.PHONY : ber_decoder/BerEncoder.s
+
+# target to generate assembly for a file
+ber_decoder/BerEncoder.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_decoder/BerEncoder.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_decoder/BerEncoder.cpp.s
+.PHONY : ber_decoder/BerEncoder.cpp.s
+
+ber_decoder/Decoded.o: ber_decoder/Decoded.cpp.o
+
+.PHONY : ber_decoder/Decoded.o
+
+# target to build an object file
+ber_decoder/Decoded.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_decoder/Decoded.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_decoder/Decoded.cpp.o
+.PHONY : ber_decoder/Decoded.cpp.o
+
+ber_decoder/Decoded.i: ber_decoder/Decoded.cpp.i
+
+.PHONY : ber_decoder/Decoded.i
+
+# target to preprocess a source file
+ber_decoder/Decoded.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_decoder/Decoded.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_decoder/Decoded.cpp.i
+.PHONY : ber_decoder/Decoded.cpp.i
+
+ber_decoder/Decoded.s: ber_decoder/Decoded.cpp.s
+
+.PHONY : ber_decoder/Decoded.s
+
+# target to generate assembly for a file
+ber_decoder/Decoded.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/ber_decoder/Decoded.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/ber_decoder/Decoded.cpp.s
+.PHONY : ber_decoder/Decoded.cpp.s
 
 main.o: main.cpp.o
 
@@ -210,7 +390,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -219,7 +399,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -228,7 +408,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 parser_mib/DataType.o: parser_mib/DataType.cpp.o
@@ -237,7 +417,8 @@ parser_mib/DataType.o: parser_mib/DataType.cpp.o
 
 # target to build an object file
 parser_mib/DataType.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/DataType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/DataType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/DataType.cpp.o
 .PHONY : parser_mib/DataType.cpp.o
 
 parser_mib/DataType.i: parser_mib/DataType.cpp.i
@@ -246,7 +427,8 @@ parser_mib/DataType.i: parser_mib/DataType.cpp.i
 
 # target to preprocess a source file
 parser_mib/DataType.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/DataType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/DataType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/DataType.cpp.i
 .PHONY : parser_mib/DataType.cpp.i
 
 parser_mib/DataType.s: parser_mib/DataType.cpp.s
@@ -255,7 +437,8 @@ parser_mib/DataType.s: parser_mib/DataType.cpp.s
 
 # target to generate assembly for a file
 parser_mib/DataType.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/DataType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/DataType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/DataType.cpp.s
 .PHONY : parser_mib/DataType.cpp.s
 
 parser_mib/ObjectId.o: parser_mib/ObjectId.cpp.o
@@ -264,7 +447,8 @@ parser_mib/ObjectId.o: parser_mib/ObjectId.cpp.o
 
 # target to build an object file
 parser_mib/ObjectId.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectId.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/ObjectId.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/ObjectId.cpp.o
 .PHONY : parser_mib/ObjectId.cpp.o
 
 parser_mib/ObjectId.i: parser_mib/ObjectId.cpp.i
@@ -273,7 +457,8 @@ parser_mib/ObjectId.i: parser_mib/ObjectId.cpp.i
 
 # target to preprocess a source file
 parser_mib/ObjectId.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectId.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/ObjectId.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/ObjectId.cpp.i
 .PHONY : parser_mib/ObjectId.cpp.i
 
 parser_mib/ObjectId.s: parser_mib/ObjectId.cpp.s
@@ -282,7 +467,8 @@ parser_mib/ObjectId.s: parser_mib/ObjectId.cpp.s
 
 # target to generate assembly for a file
 parser_mib/ObjectId.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectId.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/ObjectId.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/ObjectId.cpp.s
 .PHONY : parser_mib/ObjectId.cpp.s
 
 parser_mib/ObjectType.o: parser_mib/ObjectType.cpp.o
@@ -291,7 +477,8 @@ parser_mib/ObjectType.o: parser_mib/ObjectType.cpp.o
 
 # target to build an object file
 parser_mib/ObjectType.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/ObjectType.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/ObjectType.cpp.o
 .PHONY : parser_mib/ObjectType.cpp.o
 
 parser_mib/ObjectType.i: parser_mib/ObjectType.cpp.i
@@ -300,7 +487,8 @@ parser_mib/ObjectType.i: parser_mib/ObjectType.cpp.i
 
 # target to preprocess a source file
 parser_mib/ObjectType.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/ObjectType.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/ObjectType.cpp.i
 .PHONY : parser_mib/ObjectType.cpp.i
 
 parser_mib/ObjectType.s: parser_mib/ObjectType.cpp.s
@@ -309,7 +497,8 @@ parser_mib/ObjectType.s: parser_mib/ObjectType.cpp.s
 
 # target to generate assembly for a file
 parser_mib/ObjectType.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/ObjectType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/ObjectType.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/ObjectType.cpp.s
 .PHONY : parser_mib/ObjectType.cpp.s
 
 parser_mib/parser.o: parser_mib/parser.cpp.o
@@ -318,7 +507,8 @@ parser_mib/parser.o: parser_mib/parser.cpp.o
 
 # target to build an object file
 parser_mib/parser.cpp.o:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/parser.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/parser.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/parser.cpp.o
 .PHONY : parser_mib/parser.cpp.o
 
 parser_mib/parser.i: parser_mib/parser.cpp.i
@@ -327,7 +517,8 @@ parser_mib/parser.i: parser_mib/parser.cpp.i
 
 # target to preprocess a source file
 parser_mib/parser.cpp.i:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/parser.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/parser.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/parser.cpp.i
 .PHONY : parser_mib/parser.cpp.i
 
 parser_mib/parser.s: parser_mib/parser.cpp.s
@@ -336,8 +527,63 @@ parser_mib/parser.s: parser_mib/parser.cpp.s
 
 # target to generate assembly for a file
 parser_mib/parser.cpp.s:
-	$(MAKE) -f CMakeFiles/snmp.dir/build.make CMakeFiles/snmp.dir/parser_mib/parser.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/parser_mib/parser.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/parser.cpp.s
 .PHONY : parser_mib/parser.cpp.s
+
+tests/ber_decoder_tests/decoder.o: tests/ber_decoder_tests/decoder.cpp.o
+
+.PHONY : tests/ber_decoder_tests/decoder.o
+
+# target to build an object file
+tests/ber_decoder_tests/decoder.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/tests/ber_decoder_tests/decoder.cpp.o
+.PHONY : tests/ber_decoder_tests/decoder.cpp.o
+
+tests/ber_decoder_tests/decoder.i: tests/ber_decoder_tests/decoder.cpp.i
+
+.PHONY : tests/ber_decoder_tests/decoder.i
+
+# target to preprocess a source file
+tests/ber_decoder_tests/decoder.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/tests/ber_decoder_tests/decoder.cpp.i
+.PHONY : tests/ber_decoder_tests/decoder.cpp.i
+
+tests/ber_decoder_tests/decoder.s: tests/ber_decoder_tests/decoder.cpp.s
+
+.PHONY : tests/ber_decoder_tests/decoder.s
+
+# target to generate assembly for a file
+tests/ber_decoder_tests/decoder.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/tests/ber_decoder_tests/decoder.cpp.s
+.PHONY : tests/ber_decoder_tests/decoder.cpp.s
+
+tests/ber_decoder_tests/main_test.o: tests/ber_decoder_tests/main_test.cpp.o
+
+.PHONY : tests/ber_decoder_tests/main_test.o
+
+# target to build an object file
+tests/ber_decoder_tests/main_test.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/tests/ber_decoder_tests/main_test.cpp.o
+.PHONY : tests/ber_decoder_tests/main_test.cpp.o
+
+tests/ber_decoder_tests/main_test.i: tests/ber_decoder_tests/main_test.cpp.i
+
+.PHONY : tests/ber_decoder_tests/main_test.i
+
+# target to preprocess a source file
+tests/ber_decoder_tests/main_test.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/tests/ber_decoder_tests/main_test.cpp.i
+.PHONY : tests/ber_decoder_tests/main_test.cpp.i
+
+tests/ber_decoder_tests/main_test.s: tests/ber_decoder_tests/main_test.cpp.s
+
+.PHONY : tests/ber_decoder_tests/main_test.s
+
+# target to generate assembly for a file
+tests/ber_decoder_tests/main_test.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/tests/ber_decoder_tests/main_test.cpp.s
+.PHONY : tests/ber_decoder_tests/main_test.cpp.s
 
 # Help Target
 help:
@@ -345,9 +591,18 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
+	@echo "... list_install_components"
+	@echo "... snmp_test"
 	@echo "... edit_cache"
-	@echo "... snmp"
+	@echo "... snmp_run"
+	@echo "... rebuild_cache"
+	@echo "... gmock_main"
+	@echo "... gmock"
+	@echo "... gtest_main"
+	@echo "... gtest"
 	@echo "... ber_coder/BerCoder.o"
 	@echo "... ber_coder/BerCoder.i"
 	@echo "... ber_coder/BerCoder.s"
@@ -357,6 +612,12 @@ help:
 	@echo "... ber_coder/SimpleType.o"
 	@echo "... ber_coder/SimpleType.i"
 	@echo "... ber_coder/SimpleType.s"
+	@echo "... ber_decoder/BerEncoder.o"
+	@echo "... ber_decoder/BerEncoder.i"
+	@echo "... ber_decoder/BerEncoder.s"
+	@echo "... ber_decoder/Decoded.o"
+	@echo "... ber_decoder/Decoded.i"
+	@echo "... ber_decoder/Decoded.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
@@ -372,6 +633,12 @@ help:
 	@echo "... parser_mib/parser.o"
 	@echo "... parser_mib/parser.i"
 	@echo "... parser_mib/parser.s"
+	@echo "... tests/ber_decoder_tests/decoder.o"
+	@echo "... tests/ber_decoder_tests/decoder.i"
+	@echo "... tests/ber_decoder_tests/decoder.s"
+	@echo "... tests/ber_decoder_tests/main_test.o"
+	@echo "... tests/ber_decoder_tests/main_test.i"
+	@echo "... tests/ber_decoder_tests/main_test.s"
 .PHONY : help
 
 

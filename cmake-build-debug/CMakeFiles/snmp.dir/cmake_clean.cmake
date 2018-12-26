@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/snmp.dir/ber_coder/BerCoder.cpp.o"
   "CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o"
   "CMakeFiles/snmp.dir/ber_coder/ConstructedType.cpp.o"
+  "CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o"
+  "CMakeFiles/snmp.dir/ber_decoder/Decoded.cpp.o"
   "snmp.pdb"
   "snmp"
 )

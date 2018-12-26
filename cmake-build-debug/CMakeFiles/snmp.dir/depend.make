@@ -21,10 +21,25 @@ CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o: ../ber_coder/SimpleType.cpp
 CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o: ../ber_coder/SimpleType.h
 CMakeFiles/snmp.dir/ber_coder/SimpleType.cpp.o: ../ber_coder/Type.h
 
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../ber_decoder/./Decoded.h
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../ber_decoder/BerEncoder.cpp
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../ber_decoder/BerEncoder.h
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../parser_mib/DataType.h
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../parser_mib/ObjectId.h
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../parser_mib/ObjectType.h
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../parser_mib/parser.h
+CMakeFiles/snmp.dir/ber_decoder/BerEncoder.cpp.o: ../parser_mib/structures.h
+
+CMakeFiles/snmp.dir/ber_decoder/Decoded.cpp.o: ../ber_decoder/Decoded.cpp
+CMakeFiles/snmp.dir/ber_decoder/Decoded.cpp.o: ../ber_decoder/Decoded.h
+CMakeFiles/snmp.dir/ber_decoder/Decoded.cpp.o: ../parser_mib/DataType.h
+
 CMakeFiles/snmp.dir/main.cpp.o: ../ber_coder/BerCoder.h
 CMakeFiles/snmp.dir/main.cpp.o: ../ber_coder/ConstructedType.h
 CMakeFiles/snmp.dir/main.cpp.o: ../ber_coder/SimpleType.h
 CMakeFiles/snmp.dir/main.cpp.o: ../ber_coder/Type.h
+CMakeFiles/snmp.dir/main.cpp.o: ../ber_decoder/./Decoded.h
+CMakeFiles/snmp.dir/main.cpp.o: ../ber_decoder/BerEncoder.h
 CMakeFiles/snmp.dir/main.cpp.o: ../main.cpp
 CMakeFiles/snmp.dir/main.cpp.o: ../parser_mib/DataType.h
 CMakeFiles/snmp.dir/main.cpp.o: ../parser_mib/ObjectId.h

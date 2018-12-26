@@ -183,17 +183,6 @@ void Parser::searchForOT() {
                 temporarySyntaxValue += splittedFile[i+j] + " ";
                 j++;
             }
-//            std::regex base_regex("[[:digit:]]+..[[:digit:]]+");
-//            std::regex base_regex("(?<start>\\d+)..(?<end>\\d+)");
-//            std::smatch regex_match;
-//            cout<<temporarySyntaxValue<<endl;
-//            cout<<std::regex_match(temporarySyntaxValue,regex_match,base_regex)<<endl;
-//            if(std::regex_match(temporarySyntaxValue,regex_match,base_regex)){
-//                for(auto x: regex_match){
-//                    cout<<x<<endl;
-//                }
-//                cout<<"cos"<<endl;
-//            }
             o.setSyntax(temporarySyntaxValue);
             //set access
             j++;
@@ -280,13 +269,13 @@ std::vector <ObjectType> Parser::getObjectTypeVector() {
     return ot;
 }
 void Parser::setDataTypeVector(std::vector<DataType> dt) {
-    d = dt;
+    d = std::move(dt);
 }
 void Parser::setObjectIdVector(std::vector<ObjectId> oid) {
-    o = oid;
+    o = std::move(oid);
 }
 void Parser::setObjectTypeVector(std::vector<ObjectType> o) {
-    ot = o;
+    ot = std::move(o);
 }
 void Parser::createOutputTree() {
     ObjectId* start;
