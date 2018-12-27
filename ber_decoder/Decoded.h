@@ -14,6 +14,7 @@ private:
     std::list<std::uint8_t> value;
     std::list<Decoded*> childs;
 public:
+    Decoded();
     DataType getType();
     std::list<std::uint8_t> getValue();
     std::list<Decoded*> getChilds();
@@ -21,6 +22,8 @@ public:
     void setValue(std::list<std::uint8_t> l);
     void appendValue(std::uint8_t x);
     void addChild(Decoded* child);
+    void setChilds(std::list<Decoded*> l);
+    void print();
 };
 
 

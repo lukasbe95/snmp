@@ -35,19 +35,13 @@ int main() {
 //    }
 //    std::cout<<std::endl;
 //    delete(p);
-    BerEncoder x;
-    std::list<std::uint8_t> l = {129,200,3,4,5,6,7,8,9,44};
-    x.setInput(l);
-    x.decodeExtendedTag();
-    uint8_t a = 129;
-    uint8_t b = 200;
-    long sum;
-    sum = ((a<<8)|(b));
-    cout<<sum<<endl;
-//    int x1 = 1;
-//    x1<<=8;
-//    x1>>=8;
-//    int base = 0;
-//    cout<<"sdfsdfds"<<endl;
+    BerEncoder bE;
+    std::list<std::uint8_t> l = {80,12,144,6,2,1,13,66,1,11,132,2,88,88};
+    bE.setInput(l);
+    bE.decode();
+    for (auto x : bE.getOutput()){
+        x->print();
+    }
+
     return 0;
 }

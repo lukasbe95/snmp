@@ -17,7 +17,6 @@ private:
     Parser *mib_tree;
     std::list<std::uint8_t> input_bytes;
     std::list<Decoded*> output;
-
 public:
     void buildOutputTree();
     DataType decodeTag();
@@ -31,6 +30,7 @@ public:
     uint8_t returnShifted(uint8_t value, int shift_size);
     uint8_t returnShiftedRef(uint8_t& value, int shift_size);
     std::string returnClass(uint8_t c);
+    std::list<Decoded*> getOutput();
 };
 
 

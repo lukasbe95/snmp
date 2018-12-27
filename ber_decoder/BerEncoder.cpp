@@ -94,3 +94,40 @@ std::list<uint8_t> BerEncoder::decodeContent(int size) {
     }
     return to_return;
 }
+Decoded* BerEncoder::decodeOne() {
+    DataType decoded_dt;
+    uint8_t len_bef_seq;
+    uint8_t len;
+    std::list<std::uint8_t> val;
+    std::list<Decoded*> childs;
+    decoded_dt = this->decodeTag();
+    len = this->decodeLength();
+    len_bef_seq = (uint8_t)input_bytes.size();
+    if (decoded_dt.getAccessNum() == "16") {
+        while(len_bef_seq - (uint8_t)input_bytes.size() < (len - 1)) {
+            Decoded * temp_decode = this->decodeOne();
+            childs.push_back(temp_decode);
+        }
+    }else{
+        val = this->decodeContent(len);
+    }
+    Decoded* to_return = new Decoded();
+    to_return->setValue(val);
+    to_return->setChilds(childs);
+    to_return->setType(decoded_dt);
+    return to_return;
+
+}
+void BerEncoder::decode() {
+    std::cout<<"Into decode"<<std::endl;
+    std::cout<<input_bytes.empty()<<std::endl;
+
+    while(!input_bytes.empty()){
+        std::cout<<"Loop"<<std::endl;
+        Decoded * temp_decode = this->decodeOne();
+        output.push_back(temp_decode);
+    }
+}
+std::list<Decoded*> BerEncoder::getOutput() {
+    return this->output;
+}

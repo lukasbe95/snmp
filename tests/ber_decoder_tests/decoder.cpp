@@ -31,8 +31,6 @@ TEST(Decoded_testcase, value_append) {
 }
 // BER encoder test
 //long decodeExtendedTag();
-//void decodeLength();
-//void decodeContent();
 //void decode();
 //Decoded* decodeOne();
 
@@ -94,4 +92,13 @@ TEST(BerEncoded_testcase, decodeContent) {
     bE.setInput(l);
     ASSERT_EQ(bE.decodeContent(5),l);
 }
-
+TEST(BerEncoded_testcase, decodeOne) {
+    BerEncoder bE;
+    //seq(seq(int,int),octet)
+    std::list<std::uint8_t> l = {80,12,144,6,2,1,13,66,1,11,132,2,88,88};
+    bE.setInput(l);
+    bE.decode();
+    for (auto x : bE.getOutput()){
+        x->print();
+    }
+}
