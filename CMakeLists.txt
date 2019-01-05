@@ -25,7 +25,10 @@ set(SOURCE_FILES
         ber_decoder/BerEncoder.cpp
         ber_decoder/BerEncoder.h
         ber_decoder/Decoded.cpp
-        ber_decoder/Decoded.h)
+        ber_decoder/Decoded.h
+        pdu/SnmpMessage.h
+        pdu/SnmpMessage.cpp
+        )
 
 set(TEST_FILES
         tests/ber_decoder_tests/decoder.cpp

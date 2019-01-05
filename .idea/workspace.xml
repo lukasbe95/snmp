@@ -2,12 +2,12 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
     <generated>
-      <config projectName="snmp" targetName="gmock_main" />
       <config projectName="snmp" targetName="gtest" />
+      <config projectName="snmp" targetName="gtest_main" />
       <config projectName="snmp" targetName="gmock" />
       <config projectName="snmp" targetName="snmp_test" />
+      <config projectName="snmp" targetName="gmock_main" />
       <config projectName="snmp" targetName="snmp_run" />
-      <config projectName="snmp" targetName="gtest_main" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -17,10 +17,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a94ef5ec-6611-4448-a34c-b229fdd7dbed" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/pdu/SnmpMessage.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pdu/SnmpMessage.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ber_decoder/BerEncoder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ber_decoder/BerEncoder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ber_decoder/Decoded.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/ber_decoder/Decoded.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ber_decoder/Decoded.h" beforeDir="false" afterPath="$PROJECT_DIR$/ber_decoder/Decoded.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/snmp.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/snmp.cbp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp" afterDir="false" />
     </list>
@@ -50,7 +55,7 @@
     <session id="-1142422234">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="35" />
+          <entry key="project.closed" value="36" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.104" value="1" />
           <entry key="project.open.time.115" value="1" />
@@ -59,7 +64,7 @@
           <entry key="project.open.time.2" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.37" value="1" />
+          <entry key="project.open.time.37" value="2" />
           <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.39" value="2" />
           <entry key="project.open.time.41" value="1" />
@@ -72,39 +77,39 @@
           <entry key="project.open.time.48" value="4" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.92" value="1" />
-          <entry key="project.opened" value="38" />
+          <entry key="project.opened" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="cpp" value="54" />
-          <entry key="h" value="68" />
+          <entry key="cpp" value="59" />
+          <entry key="h" value="75" />
           <entry key="snmp (disassembly)" value="13" />
           <entry key="snmp_run (disassembly)" value="21" />
           <entry key="tcc" value="2" />
-          <entry key="txt" value="6" />
+          <entry key="txt" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CMakeLists.txt" value="6" />
+          <entry key="CMakeLists.txt" value="7" />
           <entry key="Disassembly" value="34" />
-          <entry key="ObjectiveC" value="124" />
+          <entry key="ObjectiveC" value="136" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="28630" />
-          <entry key="h" value="5742" />
+          <entry key="cpp" value="29920" />
+          <entry key="h" value="6301" />
           <entry key="mm" value="12" />
-          <entry key="txt" value="1109" />
+          <entry key="txt" value="1181" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CMakeLists.txt" value="272" />
-          <entry key="ObjectiveC" value="34384" />
-          <entry key="PLAIN_TEXT" value="837" />
+          <entry key="CMakeLists.txt" value="281" />
+          <entry key="ObjectiveC" value="36233" />
+          <entry key="PLAIN_TEXT" value="900" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.cidr.testingFrameworks.usages">
@@ -119,8 +124,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="43" column="5" selection-start-line="37" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
+            <state relative-caret-position="537">
+              <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -128,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ber_decoder/BerEncoder.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="124" selection-start-line="124" selection-end-line="124" />
+            <state relative-caret-position="396">
+              <caret line="125" column="14" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="14" />
               <folding>
                 <element signature="e#40#63#0" expanded="true" />
               </folding>
@@ -141,19 +146,48 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ber_decoder/Decoded.cpp">
+        <entry file="file://$PROJECT_DIR$/pdu/SnmpMessage.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+            <state relative-caret-position="117">
+              <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ber_decoder/Decoded.h">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pdu/SnmpMessage.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+            <state relative-caret-position="131">
+              <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+              <folding>
+                <element signature="e#39#58#0" expanded="true" />
+                <element signature="e#67#137#0" />
+                <element signature="e#139#232#0" />
+                <element signature="e#234#300#0" />
+                <element signature="e#302#358#0" />
+                <element signature="e#360#428#0" />
+                <element signature="e#430#493#0" />
+                <element signature="e#565#630#0" />
+                <element signature="e#632#713#0" />
+                <element signature="e#715#793#0" />
+                <element signature="e#795#875#0" />
+                <element signature="e#877#980#0" />
+                <element signature="e#982#1116#0" />
+                <element signature="e#1118#1213#0" />
+                <element signature="e#1215#1290#0" />
+                <element signature="e#1292#1391#0" />
+                <element signature="e#1393#1471#0" />
+                <element signature="e#1562#1650#0" />
+                <element signature="e#1652#1772#0" />
+                <element signature="e#1754#1793#0" />
+                <element signature="e#1919#1969#0" />
+                <element signature="e#3031#3072#0" />
+                <element signature="e#2829#2888#0" />
+                <element signature="e#3108#3169#0" />
+                <element signature="e#3199#3256#0" />
+                <element signature="e#3281#3340#0" />
+                <element signature="e#3460#3529#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -161,29 +195,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="237">
-              <caret line="112" column="46" selection-start-line="112" selection-start-column="46" selection-end-line="112" selection-end-column="46" />
+            <state relative-caret-position="193">
+              <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="117" selection-end-column="111" />
               <folding>
                 <element signature="e#39#54#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/main_test.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/parser_mib/DataType.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
             </state>
           </provider>
         </entry>
@@ -262,15 +278,20 @@
         <option value="$PROJECT_DIR$/parser_mib/parser.cpp" />
         <option value="$PROJECT_DIR$/parser_mib/ObjectType.h" />
         <option value="$PROJECT_DIR$/tests/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/tests/ber_decoder_tests/main_test.cpp" />
         <option value="$PROJECT_DIR$/tests/ber_decoder_tests/basic_test.cpp" />
         <option value="$PROJECT_DIR$/ber_decoder/BerEncoder.h" />
+        <option value="$PROJECT_DIR$/ber_decoder/BerEncoder.cpp" />
+        <option value="$PROJECT_DIR$/tests/ber_decoder_tests/pdu.cpp" />
+        <option value="$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp" />
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/pdu/snmp_message.cpp" />
+        <option value="$PROJECT_DIR$/pdu/snmp_message.h" />
         <option value="$PROJECT_DIR$/ber_decoder/Decoded.h" />
         <option value="$PROJECT_DIR$/ber_decoder/Decoded.cpp" />
+        <option value="$PROJECT_DIR$/pdu/SnmpMessage.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
-        <option value="$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp" />
-        <option value="$PROJECT_DIR$/ber_decoder/BerEncoder.cpp" />
+        <option value="$PROJECT_DIR$/pdu/SnmpMessage.cpp" />
       </list>
     </option>
   </component>
@@ -292,7 +313,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -307,23 +327,13 @@
             </path>
             <path>
               <item name="snmp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snmp" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snmp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="snmp" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="ber_decoder_tests" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="snmp" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -349,7 +359,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.snmp_test">
+  <component name="RunManager" selected="Application.snmp_run">
     <configuration name="BerEncoded_testcase.decodeSeqSeq" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" WORKING_DIR="file://$PROJECT_DIR$/tests" PASS_PARENT_ENVS_2="true" PROJECT_NAME="snmp" TARGET_NAME="snmp_test" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="snmp" RUN_TARGET_NAME="snmp_test" TEST_CLASS="BerEncoded_testcase" TEST_METHOD="decodeSeqSeq" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -465,7 +475,8 @@
       <workItem from="1545839432774" duration="18000" />
       <workItem from="1545841545014" duration="9885000" />
       <workItem from="1545895792707" duration="8579000" />
-      <workItem from="1546685526250" duration="3396000" />
+      <workItem from="1546685526250" duration="9796000" />
+      <workItem from="1546705643357" duration="5944000" />
     </task>
     <task id="LOCAL-00001" summary="Parser Object-Type functions nearly written.">
       <created>1540914027170</created>
@@ -586,7 +597,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545909567819</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Ber decoder unit test developed. Extended tag bug fixed.">
+      <created>1546691385333</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1546691385334</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -598,7 +616,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="265630000" />
+    <option name="totallyTimeSpent" value="277974000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -613,7 +631,7 @@
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25219473" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25618514" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -709,7 +727,9 @@
     <MESSAGE value="Few ber encoder methods developed. Tests created." />
     <MESSAGE value="Ber decoder developed. Unit tests need to be written." />
     <MESSAGE value="Ber decoder developed. Unit tests need to be written. MIB tree interaction expected." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ber decoder developed. Unit tests need to be written. MIB tree interaction expected." />
+    <MESSAGE value="Ber decoder unit test developed." />
+    <MESSAGE value="Ber decoder unit test developed. Extended tag bug fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ber decoder unit test developed. Extended tag bug fixed." />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="setValue">
@@ -820,13 +840,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser_mib/ObjectType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/lib/googletest/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -851,13 +864,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
@@ -913,24 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/parser_mib/DataType.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/parser_mib/DataType.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/main_test.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -941,53 +933,135 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
+    <entry file="file://$PROJECT_DIR$/parser_mib/DataType.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="90">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
+    <entry file="file://$PROJECT_DIR$/parser_mib/ObjectType.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="43" column="5" selection-start-line="37" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
+        <state relative-caret-position="277">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/main_test.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/lib/googletest/googletest/include/gtest/gtest.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="488" column="15" selection-start-line="488" selection-start-column="15" selection-end-line="488" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/pdu.cpp" />
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ber_decoder/BerEncoder.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="125" column="14" selection-start-line="125" selection-start-column="8" selection-end-line="125" selection-end-column="14" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#40#63#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp">
+    <entry file="file://$PROJECT_DIR$/ber_decoder/Decoded.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="112" column="46" selection-start-line="112" selection-start-column="46" selection-end-line="112" selection-end-column="46" />
+        <state relative-caret-position="486">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
           <folding>
-            <element signature="e#39#54#0" expanded="true" />
+            <element signature="e#1073#1473#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ber_decoder/Decoded.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="26" column="32" selection-start-line="26" selection-start-column="32" selection-end-line="26" selection-end-column="32" />
+        <state relative-caret-position="375">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ber_decoder/Decoded.cpp">
+    <entry file="file:///usr/include/c++/7/ext/new_allocator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="49" column="51" selection-start-line="49" selection-start-column="51" selection-end-line="49" selection-end-column="51" />
+        <state relative-caret-position="51">
+          <caret line="135" selection-start-line="135" selection-end-line="135" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ber_decoder/BerEncoder.cpp">
+    <entry file="file://$PROJECT_DIR$/tests/ber_decoder_tests/decoder.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="124" selection-start-line="124" selection-end-line="124" />
+        <state relative-caret-position="193">
+          <caret line="116" column="4" selection-start-line="116" selection-start-column="4" selection-end-line="117" selection-end-column="111" />
           <folding>
-            <element signature="e#40#63#0" expanded="true" />
+            <element signature="e#39#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdu/SnmpMessage.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="51" column="24" selection-start-line="51" selection-start-column="24" selection-end-line="51" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="537">
+          <caret line="46" column="24" selection-start-line="46" selection-start-column="24" selection-end-line="46" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pdu/SnmpMessage.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="116" column="18" selection-start-line="116" selection-start-column="18" selection-end-line="116" selection-end-column="18" />
+          <folding>
+            <element signature="e#39#58#0" expanded="true" />
+            <element signature="e#67#137#0" />
+            <element signature="e#139#232#0" />
+            <element signature="e#234#300#0" />
+            <element signature="e#302#358#0" />
+            <element signature="e#360#428#0" />
+            <element signature="e#430#493#0" />
+            <element signature="e#565#630#0" />
+            <element signature="e#632#713#0" />
+            <element signature="e#715#793#0" />
+            <element signature="e#795#875#0" />
+            <element signature="e#877#980#0" />
+            <element signature="e#982#1116#0" />
+            <element signature="e#1118#1213#0" />
+            <element signature="e#1215#1290#0" />
+            <element signature="e#1292#1391#0" />
+            <element signature="e#1393#1471#0" />
+            <element signature="e#1562#1650#0" />
+            <element signature="e#1652#1772#0" />
+            <element signature="e#1754#1793#0" />
+            <element signature="e#1919#1969#0" />
+            <element signature="e#3031#3072#0" />
+            <element signature="e#2829#2888#0" />
+            <element signature="e#3108#3169#0" />
+            <element signature="e#3199#3256#0" />
+            <element signature="e#3281#3340#0" />
+            <element signature="e#3460#3529#0" />
           </folding>
         </state>
       </provider>

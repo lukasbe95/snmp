@@ -7,6 +7,7 @@
 #include "parser_mib/parser.h"
 #include "ber_coder/BerCoder.h"
 #include "ber_decoder/BerEncoder.h"
+#include "pdu/SnmpMessage.h"
 using  namespace std;
 
 
@@ -36,12 +37,13 @@ int main() {
 //    std::cout<<std::endl;
 //    delete(p);
     BerEncoder bE;
-    std::list<std::uint8_t> l = {159,129,200,3,2,9,44};
-    bE.setInput(l);
+    std::list<uint8_t> test_input = {
+            48,35,2,1,0,4,7,112,114,105,118,97,116,101,144,22,2,1,1,2,1,0,2,1,0,48,12,6,8,1,3,6,1,2,1,1,1,5,0};
+    bE.setInput(test_input);
     bE.decode();
-    for (auto x : bE.getOutput()){
-        std::cout<<x->returnDecoded()<<std::endl;
-    }
-
+    SnmpMessage snmp;
+    snmp.setEncoded_message(bE.getOutput());
+    snmp.processEncodedMessage();
+    snmp.printMessage();
     return 0;
 }

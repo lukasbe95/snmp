@@ -113,3 +113,8 @@ TEST(BerEncoded_testcase, decodeNormal) {
         ASSERT_EQ(answer, x->returnDecoded());
     }
 }
+TEST(pdu_testcase, first) {
+    std::list<uint8_t> test_input = {
+            48,35,2,1,0,4,7,112,114,105,118,97,116,101,144,22,2,1,1,2,1,0,2,1,0,48,12,6,8,1,3,6,1,2,1,1,1,5,0};
+    ASSERT_EQ(1,1);
+}

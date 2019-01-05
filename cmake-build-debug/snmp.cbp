@@ -481,6 +481,14 @@
 			<Option target="snmp_test"/>
 			<Option target="snmp_run"/>
 		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/pdu/SnmpMessage.cpp">
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
+		<Unit filename="/home/lukas/git_start/snmp/pdu/SnmpMessage.h">
+			<Option target="snmp_test"/>
+			<Option target="snmp_run"/>
+		</Unit>
 		<Unit filename="/home/lukas/git_start/snmp/tests/ber_decoder_tests/decoder.cpp">
 			<Option target="snmp_test"/>
 		</Unit>

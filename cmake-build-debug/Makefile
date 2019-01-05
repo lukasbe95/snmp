@@ -531,6 +531,36 @@ parser_mib/parser.cpp.s:
 	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/parser_mib/parser.cpp.s
 .PHONY : parser_mib/parser.cpp.s
 
+pdu/SnmpMessage.o: pdu/SnmpMessage.cpp.o
+
+.PHONY : pdu/SnmpMessage.o
+
+# target to build an object file
+pdu/SnmpMessage.cpp.o:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/pdu/SnmpMessage.cpp.o
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/pdu/SnmpMessage.cpp.o
+.PHONY : pdu/SnmpMessage.cpp.o
+
+pdu/SnmpMessage.i: pdu/SnmpMessage.cpp.i
+
+.PHONY : pdu/SnmpMessage.i
+
+# target to preprocess a source file
+pdu/SnmpMessage.cpp.i:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/pdu/SnmpMessage.cpp.i
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/pdu/SnmpMessage.cpp.i
+.PHONY : pdu/SnmpMessage.cpp.i
+
+pdu/SnmpMessage.s: pdu/SnmpMessage.cpp.s
+
+.PHONY : pdu/SnmpMessage.s
+
+# target to generate assembly for a file
+pdu/SnmpMessage.cpp.s:
+	$(MAKE) -f CMakeFiles/snmp_test.dir/build.make CMakeFiles/snmp_test.dir/pdu/SnmpMessage.cpp.s
+	$(MAKE) -f CMakeFiles/snmp_run.dir/build.make CMakeFiles/snmp_run.dir/pdu/SnmpMessage.cpp.s
+.PHONY : pdu/SnmpMessage.cpp.s
+
 tests/ber_decoder_tests/decoder.o: tests/ber_decoder_tests/decoder.cpp.o
 
 .PHONY : tests/ber_decoder_tests/decoder.o
@@ -633,6 +663,9 @@ help:
 	@echo "... parser_mib/parser.o"
 	@echo "... parser_mib/parser.i"
 	@echo "... parser_mib/parser.s"
+	@echo "... pdu/SnmpMessage.o"
+	@echo "... pdu/SnmpMessage.i"
+	@echo "... pdu/SnmpMessage.s"
 	@echo "... tests/ber_decoder_tests/decoder.o"
 	@echo "... tests/ber_decoder_tests/decoder.i"
 	@echo "... tests/ber_decoder_tests/decoder.s"
