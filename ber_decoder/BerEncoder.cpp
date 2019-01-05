@@ -67,9 +67,11 @@ uint64_t BerEncoder::decodeExtendedTag() {
     while(*it>127){
         temp.push_back(*it);
         it++;
+        this->input_bytes.pop_front();
     }
     temp.push_back(*it);
     it++;
+    this->input_bytes.pop_front();
     if (temp.size() > 8){
         return 0;
     }
@@ -119,11 +121,7 @@ Decoded* BerEncoder::decodeOne() {
 
 }
 void BerEncoder::decode() {
-    std::cout<<"Into decode"<<std::endl;
-    std::cout<<input_bytes.empty()<<std::endl;
-
     while(!input_bytes.empty()){
-        std::cout<<"Loop"<<std::endl;
         Decoded * temp_decode = this->decodeOne();
         output.push_back(temp_decode);
     }

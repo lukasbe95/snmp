@@ -24,6 +24,7 @@ public:
     void addChild(Decoded* child);
     void setChilds(std::list<Decoded*> l);
     void print();
+    std::string returnDecoded();
 };
 
 

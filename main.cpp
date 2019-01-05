@@ -36,11 +36,11 @@ int main() {
 //    std::cout<<std::endl;
 //    delete(p);
     BerEncoder bE;
-    std::list<std::uint8_t> l = {80,12,144,6,2,1,13,66,1,11,132,2,88,88};
+    std::list<std::uint8_t> l = {159,129,200,3,2,9,44};
     bE.setInput(l);
     bE.decode();
     for (auto x : bE.getOutput()){
-        x->print();
+        std::cout<<x->returnDecoded()<<std::endl;
     }
 
     return 0;

@@ -43,3 +43,16 @@ void Decoded::print() {
     }
     std::cout<<"----------------------"<<std::endl;
 }
+std::string Decoded::returnDecoded() {
+    std::string to_decoded;
+    to_decoded += this->type.getAccess() + "(" + this->type.getAccessNum() + ") v: ";
+    for(auto v : this-> value){
+        to_decoded += std::to_string((int)v) + " ";
+    }
+    to_decoded += "(";
+    for(auto child : this->childs){
+        to_decoded += child->returnDecoded();
+    }
+    to_decoded +=")";
+    return to_decoded;
+}

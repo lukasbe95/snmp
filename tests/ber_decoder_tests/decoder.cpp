@@ -92,13 +92,24 @@ TEST(BerEncoded_testcase, decodeContent) {
     bE.setInput(l);
     ASSERT_EQ(bE.decodeContent(5),l);
 }
-TEST(BerEncoded_testcase, decodeOne) {
+TEST(BerEncoded_testcase, decodeSeqSeq) {
     BerEncoder bE;
     //seq(seq(int,int),octet)
     std::list<std::uint8_t> l = {80,12,144,6,2,1,13,66,1,11,132,2,88,88};
     bE.setInput(l);
     bE.decode();
+    std::string answer = "APPLICATION(16) v: (CONTEXT-SPECIFIC(16) v: (UNIVERSAL(2) v: 13 ()APPLICATION(2) v: 11 ())CONTEXT-SPECIFIC(4) v: 88 88 ())";
     for (auto x : bE.getOutput()){
-        x->print();
+        ASSERT_EQ(answer, x->returnDecoded());
+    }
+}
+TEST(BerEncoded_testcase, decodeNormal) {
+    std::string answer = "CONTEXT-SPECIFIC(8505347) v: 9 44 ()";
+    BerEncoder bE;
+    std::list<std::uint8_t> l = {159,129,200,3,2,9,44};
+    bE.setInput(l);
+    bE.decode();
+    for (auto x : bE.getOutput()){
+        ASSERT_EQ(answer, x->returnDecoded());
     }
 }
