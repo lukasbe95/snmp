@@ -14,9 +14,9 @@ private:
     int request_id;
     int error;
     int error_index;
-    Decoded oid;
-    Decoded value;
-    Decoded * message;
+    Decoded* oid;
+    Decoded* value;
+    std::list<Decoded *> message;
     std::list<Decoded *> encoded_message;
     std::list<uint8_t> input;
     std::list<uint8_t> output;
@@ -26,9 +26,7 @@ public:
     int getRequest_id() const;
     int getError() const;
     int getError_index() const;
-    const Decoded &getOid() const;
-    Decoded getValue();
-    Decoded *getMessage() const;
+    std::list<Decoded *> getMessage() const;
     std::list<Decoded *>getEncoded_message() const;
     const std::list<uint8_t> &getInput() const;
     const std::list<uint8_t> &getOutput() const;
@@ -37,8 +35,7 @@ public:
     void setRequest_id(int request_id);
     void setError(int error);
     void setError_index(int error_index);
-    void setOid(const Decoded &oid);
-    void setMessage(Decoded *message);
+    void setMessage(std::list<Decoded *> message);
     void setEncoded_message(std::list<Decoded*> encoded_message);
     void decodeBER();
     void processEncodedMessage();
@@ -47,9 +44,19 @@ public:
     void setRequestID(std::list<uint8_t> l);
     void setError(std::list<uint8_t> l);
     void setErrorID(std::list<uint8_t> l);
-    void setOID(std::list<uint8_t> l);
-    void setValue(std::list<uint8_t> l);
+    void setOID(Decoded* d);
+    void setValue(Decoded* d);
     void printMessage();
+    void createTreeFromPDU();
+    void processCodingToBER();
+    Decoded * createSnmpVersion();
+    Decoded * createCommunityString();
+    Decoded * createRequestID();
+    Decoded * createError();
+    Decoded * createErrorID();
+    std::list<uint8_t> strToUint8(std::string x);
+    std::list<uint8_t> intToUint8(int x);
+
 };
 
 

@@ -20,13 +20,7 @@ int SnmpMessage::getError() const {
 int SnmpMessage::getError_index() const {
     return error_index;
 }
-const Decoded &SnmpMessage::getOid() const {
-    return oid;
-}
-Decoded SnmpMessage::getValue(){
-    return value;
-}
-Decoded *SnmpMessage::getMessage() const {
+std::list<Decoded *> SnmpMessage::getMessage() const {
     return message;
 }
 std::list<Decoded *> SnmpMessage::getEncoded_message() const {
@@ -53,10 +47,7 @@ void SnmpMessage::setError(int error) {
 void SnmpMessage::setError_index(int error_index) {
     SnmpMessage::error_index = error_index;
 }
-void SnmpMessage::setOid(const Decoded &oid) {
-    SnmpMessage::oid = oid;
-}
-void SnmpMessage::setMessage(Decoded *message) {
+void SnmpMessage::setMessage(std::list<Decoded *> message) {
     SnmpMessage::message = message;
 }
 void SnmpMessage::setEncoded_message(std::list<Decoded*> encoded_message) {
@@ -88,9 +79,9 @@ void SnmpMessage::processEncodedMessage() {
     it++;
     pdu_ch = (*it)->getChilds();
     it = pdu_ch.begin();
-    this->setOID((*it)->getValue());
+    this->setOID((*it));
     it++;
-    this->setValue((*it)->getValue());
+    this->setValue((*it));
 }
 void SnmpMessage::printMessage() {
     std::cout<<"SNMP VER: "<<this->snmp_version<<std::endl;
@@ -99,11 +90,11 @@ void SnmpMessage::printMessage() {
     std::cout<<"ERROR: "<<this->error<<std::endl;
     std::cout<<"ERROR ID: "<<this->error_index<<std::endl;
     std::cout<<"OID: "<<std::endl;
-    for(auto x: this->oid.getValue()){
+    for(auto x: this->oid->getValue()){
         std::cout<<(int)x<<std::endl;
     }
     std::cout<<"VALUE: "<<std::endl;
-    for(auto i: this->value.getValue()){
+    for(auto i: this->value->getValue()){
         std::cout<<(int)i<<std::endl;
     }
 
@@ -127,9 +118,105 @@ void SnmpMessage::setError(std::list<uint8_t> l) {
 void SnmpMessage::setErrorID(std::list<uint8_t> l) {
     this->error_index = l.front();
 }
-void SnmpMessage::setOID(std::list<uint8_t> l) {
-    this->oid.setValue(std::move(l));
+void SnmpMessage::setOID(Decoded *d) {
+    this->oid = d;
 }
-void SnmpMessage::setValue(std::list<uint8_t> l) {
-    this->value.setValue(l);
+void SnmpMessage::setValue(Decoded *d) {
+    this->value = d;
+}
+void SnmpMessage::createTreeFromPDU() {
+    auto root = new Decoded();
+    auto oid_seq = new Decoded();
+    oid_seq->addChild(this->oid);
+    oid_seq->addChild(this->value);
+    DataType d_oid;
+    d_oid.setAccessNum("16");
+    d_oid.setAccess("UNIVERSAL");
+    oid_seq->setType(d_oid);
+    auto pdu = new Decoded();
+    pdu->addChild(this->createRequestID());
+    pdu->addChild(this->createError());
+    pdu->addChild(this->createErrorID());
+    pdu->addChild(oid_seq);
+    DataType d_pdu;
+    d_pdu.setAccess("CONTEXT-SPECIFIC");
+    d_pdu.setAccessNum("16");
+    pdu->setType(d_pdu);
+    root->addChild(this->createSnmpVersion());
+    root->addChild(this->createCommunityString());
+    root->addChild(pdu);
+    DataType d_root;
+    d_root.setAccessNum("16");
+    d_root.setAccess("UNIVERSAL");
+    this->message.push_back(root);
+}
+Decoded* SnmpMessage::createSnmpVersion() {
+    auto to_return = new Decoded();
+    DataType d;
+    d.setAccessNum("2");
+    d.setAccess("UNIVERSAL");
+    to_return->setType(d);
+    to_return->setValue(this->intToUint8(this->snmp_version));
+    return to_return;
+}
+std::list<uint8_t> SnmpMessage::strToUint8(std::string x) {
+    std::list<uint8_t> to_return;
+    for(auto i : x){
+        to_return.push_back((uint8_t)i);
+
+    }
+    return to_return;
+}
+std::list<uint8_t> SnmpMessage::intToUint8(int x) {
+    int& ref = x;
+    std::list<uint8_t> to_return;
+    for (int i = 0; i < 5; ++i) {
+        to_return.push_front((uint8_t)ref % 256);
+        ref >>= 8;
+    }
+    auto it = to_return.begin();
+    while(*it == 0 && !to_return.empty()){
+        it++;
+        to_return.pop_front();
+    }
+    if(to_return.empty()){
+        to_return.push_back(0);
+    }
+    return to_return;
+}
+Decoded* SnmpMessage::createCommunityString() {
+    auto to_return = new Decoded();
+    DataType d;
+    d.setAccessNum("4");
+    d.setAccess("UNIVERSAL");
+    to_return->setType(d);
+    to_return->setValue(this->strToUint8(this->community_string));
+    return to_return;
+}
+Decoded* SnmpMessage::createRequestID() {
+    auto to_return = new Decoded();
+    DataType d;
+    d.setAccessNum("2");
+    d.setAccess("UNIVERSAL");
+    to_return->setType(d);
+    to_return->setValue(this->intToUint8(this->request_id));
+    return to_return;
+}
+Decoded* SnmpMessage::createError() {
+    auto to_return = new Decoded();
+    DataType d;
+    d.setAccessNum("2");
+    d.setAccess("UNIVERSAL");
+    to_return->setType(d);
+    to_return->setValue(this->intToUint8(this->error));
+    return to_return;
+}
+Decoded* SnmpMessage::createErrorID() {
+    auto to_return = new Decoded();
+    DataType d;
+    d.setAccessNum("2");
+    d.setAccess("UNIVERSAL");
+    to_return->setType(d);
+    to_return->setValue(this->intToUint8(this->error_index));
+    return to_return;
 }

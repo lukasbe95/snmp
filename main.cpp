@@ -45,5 +45,9 @@ int main() {
     snmp.setEncoded_message(bE.getOutput());
     snmp.processEncodedMessage();
     snmp.printMessage();
+    snmp.createTreeFromPDU();
+    for(auto x : snmp.getMessage()){
+        cout<<x->returnDecoded()<<endl;
+    }
     return 0;
 }

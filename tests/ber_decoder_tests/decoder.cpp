@@ -7,6 +7,7 @@
 
 #include "../../ber_decoder/BerEncoder.h"
 #include "../../ber_decoder/Decoded.h"
+#include "../../pdu/SnmpMessage.h"
 
 
 TEST(Decoded_testcase, value) {
@@ -117,4 +118,38 @@ TEST(pdu_testcase, first) {
     std::list<uint8_t> test_input = {
             48,35,2,1,0,4,7,112,114,105,118,97,116,101,144,22,2,1,1,2,1,0,2,1,0,48,12,6,8,1,3,6,1,2,1,1,1,5,0};
     ASSERT_EQ(1,1);
+}
+TEST(pdu_testcase, intToUint8){
+    SnmpMessage sm;
+    std::list<uint8_t> to_compare;
+    to_compare.push_back(8);
+    ASSERT_EQ(sm.intToUint8(8), to_compare);
+    to_compare.push_front(0);
+    to_compare.push_front(1);
+    ASSERT_EQ(sm.intToUint8(65544),to_compare);
+}
+TEST(pdu_testcase, strToUint8){
+    SnmpMessage sm;
+    std::list<uint8_t> to_compare;
+    to_compare.push_back('p');
+    to_compare.push_back('r');
+    to_compare.push_back('i');
+    to_compare.push_back('v');
+    to_compare.push_back('a');
+    ASSERT_EQ(sm.strToUint8("priva"),to_compare);
+}
+TEST(pdu_testcase, createTreeFromPDU) {
+    std::string ans = "() v: (UNIVERSAL(2) v: 0 ()UNIVERSAL(4) v: 112 114 105 118 97 116 101 ()CONTEXT-SPECIFIC(16) v: (UNIVERSAL(2) v: 1 ()UNIVERSAL(2) v: 0 ()UNIVERSAL(2) v: 0 ()UNIVERSAL(16) v: (UNIVERSAL(6) v: 1 3 6 1 2 1 1 1 ()UNIVERSAL(5) v: ())))";
+    BerEncoder bE;
+    std::list<uint8_t> test_input = {
+            48,35,2,1,0,4,7,112,114,105,118,97,116,101,144,22,2,1,1,2,1,0,2,1,0,48,12,6,8,1,3,6,1,2,1,1,1,5,0};
+    bE.setInput(test_input);
+    bE.decode();
+    SnmpMessage snmp;
+    snmp.setEncoded_message(bE.getOutput());
+    snmp.processEncodedMessage();
+    snmp.createTreeFromPDU();
+    for(auto x : snmp.getMessage()){
+        ASSERT_EQ(x->returnDecoded(), ans);
+    }
 }

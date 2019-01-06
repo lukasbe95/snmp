@@ -28,13 +28,7 @@ private:
     bool eoc = false;
     std::string entered_adress;
     std::string implicit_explicit;
-//    std::vector<std::string> sequence_types;
-//    std::vector<std::string> sequence_values;
-//    std::vector<DataType> datatypes_vector;
-//    std::vector<ObjectId> objecttypes_vector;
     std::vector<uint8_t> sequence_content;
-
-
 public:
     BerCoder();
     std::vector<uint8_t> enterData();
