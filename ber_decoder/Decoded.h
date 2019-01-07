@@ -13,6 +13,7 @@ private:
     DataType type;
     std::list<std::uint8_t> value;
     std::list<Decoded*> childs;
+    std::list<std::uint8_t> coded;
 public:
     Decoded();
     DataType getType();
@@ -25,6 +26,19 @@ public:
     void setChilds(std::list<Decoded*> l);
     void print();
     std::string returnDecoded();
+    std::list<std::uint8_t> getCoded();
+    void setCoded(std::list<std::uint8_t> l);
+    void appendChildsCoded(std::list<std::uint8_t> l);
+    void addChildWithDecoded(Decoded* d);
+    void appendChildValue(std::list<uint8_t> l);
+    void codeBER();
+    void codeIntOctet();
+    void codeNull();
+    void codeOID();
+    void codeOctet();
+    void codeSequence();
+    std::list<uint8_t> createTagToBER();
+    uint8_t setTagClass(std::string c);
 };
 
 

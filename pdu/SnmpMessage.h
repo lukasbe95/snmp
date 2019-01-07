@@ -48,7 +48,6 @@ public:
     void setValue(Decoded* d);
     void printMessage();
     void createTreeFromPDU();
-    void processCodingToBER();
     Decoded * createSnmpVersion();
     Decoded * createCommunityString();
     Decoded * createRequestID();
@@ -56,7 +55,6 @@ public:
     Decoded * createErrorID();
     std::list<uint8_t> strToUint8(std::string x);
     std::list<uint8_t> intToUint8(int x);
-
 };
 
 

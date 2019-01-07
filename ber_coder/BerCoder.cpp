@@ -27,11 +27,14 @@ uint8_t BerCoder::setTagClass(std::string c) {
     }
 }
 uint8_t BerCoder::setPC() {
-    if(this->obj.getIsSequenceType() || this->obj.getType().find("OCTET") < 100){
+    if(this->obj.getIsSequenceType() || this->obj.getType().find("OCTET") < 100 || seq){
         return 32;
     } else {
         return 0;
     }
+}
+void BerCoder::setSeq() {
+    this->seq = true;
 }
 void BerCoder::setTagNumber(std::string access, std::string basetype) {
     if (!access.empty()){

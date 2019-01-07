@@ -29,6 +29,7 @@ private:
     std::string entered_adress;
     std::string implicit_explicit;
     std::vector<uint8_t> sequence_content;
+    bool seq;
 public:
     BerCoder();
     std::vector<uint8_t> enterData();
@@ -42,6 +43,7 @@ public:
     std::vector<uint8_t> createLength();
     std::vector<uint8_t> createContentBasedOnLength(std::string value);
     void enterAddress();
+    void setSeq();
     std::vector<uint8_t> enterDatatype();
     std::vector<uint8_t> enterSequence();
     void enterInteger();

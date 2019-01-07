@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include "../ber_decoder/BerEncoder.h"
+#include "../ber_coder/BerCoder.h"
 #include "SnmpMessage.h"
 
 int SnmpMessage::getSnmp_version() const {
@@ -127,27 +128,29 @@ void SnmpMessage::setValue(Decoded *d) {
 void SnmpMessage::createTreeFromPDU() {
     auto root = new Decoded();
     auto oid_seq = new Decoded();
-    oid_seq->addChild(this->oid);
-    oid_seq->addChild(this->value);
+    oid_seq->addChildWithDecoded(this->oid);
+    oid_seq->addChildWithDecoded(this->value);
     DataType d_oid;
     d_oid.setAccessNum("16");
     d_oid.setAccess("UNIVERSAL");
     oid_seq->setType(d_oid);
     auto pdu = new Decoded();
-    pdu->addChild(this->createRequestID());
-    pdu->addChild(this->createError());
-    pdu->addChild(this->createErrorID());
-    pdu->addChild(oid_seq);
+    pdu->addChildWithDecoded(this->createRequestID());
+    pdu->addChildWithDecoded(this->createError());
+    pdu->addChildWithDecoded(this->createErrorID());
+    pdu->addChildWithDecoded(oid_seq);
     DataType d_pdu;
     d_pdu.setAccess("CONTEXT-SPECIFIC");
     d_pdu.setAccessNum("16");
     pdu->setType(d_pdu);
-    root->addChild(this->createSnmpVersion());
-    root->addChild(this->createCommunityString());
-    root->addChild(pdu);
+    root->addChildWithDecoded(this->createSnmpVersion());
+    root->addChildWithDecoded(this->createCommunityString());
+    root->addChildWithDecoded(pdu);
     DataType d_root;
     d_root.setAccessNum("16");
     d_root.setAccess("UNIVERSAL");
+    root->setType(d_root);
+    root->codeBER();
     this->message.push_back(root);
 }
 Decoded* SnmpMessage::createSnmpVersion() {
